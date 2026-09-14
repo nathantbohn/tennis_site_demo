@@ -2,7 +2,7 @@ import type { PlaceholderImage } from "@/data/types";
 import { CourtLines } from "@/components/CourtLines";
 
 const variantClass: Record<PlaceholderImage["variant"], string> = {
-  clay: "ph-clay",
+  court: "ph-court",
   dusk: "ph-dusk",
   grass: "ph-grass",
   clubhouse: "ph-clubhouse",
@@ -11,7 +11,7 @@ const variantClass: Record<PlaceholderImage["variant"], string> = {
 };
 
 const linesOpacity: Record<PlaceholderImage["variant"], string> = {
-  clay: "opacity-80",
+  court: "opacity-80",
   dusk: "opacity-40",
   grass: "opacity-70",
   clubhouse: "opacity-0",

@@ -43,7 +43,7 @@ export default async function OpenGraphImage() {
               fontFamily: "sans-serif",
             }}
           >
-            {`${site.address.city}, ${site.address.state} · Est. clay courts`}
+            {`${site.address.city}, ${site.address.state} · Tennis club`}
           </div>
           <div style={{ fontSize: 84, lineHeight: 1, marginTop: 20, fontWeight: 600, color: "#33454a" }}>
             {site.name}

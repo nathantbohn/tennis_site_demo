@@ -17,7 +17,7 @@ import { SectionHeading } from "@/components/SectionHeading";
 
 export async function generateMetadata(): Promise<Metadata> {
   const site = await getSite();
-  const title = `${site.name} · Clay courts in ${site.address.city}, ${site.address.state}`;
+  const title = `${site.name} · Tennis in ${site.address.city}, ${site.address.state}`;
   return {
     title: { absolute: title },
     description: site.description,
@@ -77,8 +77,8 @@ export default async function HomePage() {
           <div className="relative md:col-span-5">
             <Placeholder
               image={{
-                variant: "clay",
-                alt: `The clay courts at ${site.name} in late-afternoon light, lines freshly swept`,
+                variant: "court",
+                alt: `The courts at ${site.name} in late-afternoon light, lines freshly swept`,
               }}
               className="aspect-[4/3] rounded-[2rem] shadow-lift sm:aspect-[5/4] md:aspect-[4/5]"
             />

@@ -1,7 +1,7 @@
 [
   {
-    "id": "fall-clay-classic-2026",
-    "name": "Fall Clay Classic",
+    "id": "fall-classic-2026",
+    "name": "Fall Classic",
     "startDate": "2026-10-17",
     "endDate": "2026-10-18",
     "registrationCloses": "2026-10-12",
@@ -20,9 +20,9 @@
     ],
     "entryFee": 35,
     "entryFeeNote": "Per player, per event. Play a second event for $15.",
-    "description": "Our biggest weekend of the year. Two days of clay-court tennis for every level, lunch on the clubhouse porch, and trophies for winners and finalists.",
+    "description": "Our biggest weekend of the year. Two days of tennis for every level, lunch on the clubhouse porch, and trophies for winners and finalists.",
     "status": "open",
-    "todo": "TODO(fred): placeholder tournament. The current site says the club welcomes players from beginners to advanced levels. What tournaments are actually planned, and what are the dates, divisions and fees?"
+    "todo": "TODO(fred): placeholder tournament (renamed from 'Fall Clay Classic' — court surface is unverified, see facility.todo in site.json). The current site says the club welcomes players from beginners to advanced levels. What tournaments are actually planned, and what are the dates, divisions and fees?"
   },
   {
     "id": "holiday-mixed-2026",

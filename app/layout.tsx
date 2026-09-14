@@ -28,7 +28,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     metadataBase: getSiteUrl(site),
     title: {
-      default: `${site.name} · Clay courts in ${site.address.city}, ${site.address.state}`,
+      default: `${site.name} · Tennis in ${site.address.city}, ${site.address.state}`,
       template: `%s · ${site.name}`,
     },
     description: site.description,

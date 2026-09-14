@@ -1,7 +1,7 @@
 # DeLand Tennis Club — website
 
 Phase 1 demo of the new [delandtennis.com](https://www.delandtennis.com): a
-static, mobile-first Next.js site for a small clay-court club in DeLand, FL.
+static, mobile-first Next.js site for a small tennis club in DeLand, FL.
 No database, no auth. See `CLAUDE.md` for the phase plan and architecture rules.
 
 ## Run it locally

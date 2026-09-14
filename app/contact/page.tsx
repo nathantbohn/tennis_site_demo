@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getSite } from "@/lib/content";
-import { formatTime, numberWord } from "@/lib/format";
+import { formatTime } from "@/lib/format";
 import { formatPhone, mailtoHref, smsHref, telHref } from "@/lib/phone";
 import { ButtonLink } from "@/components/ButtonLink";
 import { Container } from "@/components/Container";
@@ -153,7 +153,7 @@ export default async function ContactPage() {
             </p>
             <ul className="mt-5 space-y-2 text-[0.9375rem] text-sage-100">
               {[
-                `${numberWord(site.facility.courtCount).charAt(0).toUpperCase()}${numberWord(site.facility.courtCount).slice(1)} ${site.facility.surface} courts, all lit`,
+                "Our courts, lit for evening play",
                 "Hourly reservations, walk-ins when a court is free",
                 "ACE PASS holders: just say your name",
               ].map((line) => (

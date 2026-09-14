@@ -127,21 +127,30 @@
   Placeholder "photography". Solid and gradient blocks stand in for photos
   until the shoot; the alt text on each block is the shot list.
 
-  ph-clay / ph-dusk / ph-grass / ph-ball depict a physical scene (real clay
-  is orange, dusk is warm, a tennis ball is yellow-green) and are left as
-  realistic scene colors rather than reskinned to the site's UI palette —
-  the rebrand below only touches ph-clubhouse and ph-map, which were
-  neutral fills standing in for siding and a map grid, not a colored scene.
+  The court surface at this club is unverified (see facility.todo in
+  data/site.json) — an earlier draft assumed clay and colored these
+  terracotta accordingly, which was wrong. None of these placeholders
+  claim a specific surface color any more:
+  - ph-court is a generic, abstract wash in the site's own sage/lime/
+    slate palette — a stylized placeholder, not a photo of any real
+    surface.
+  - ph-dusk keeps its warm sunset glow (a sky color, independent of the
+    court below it) but now fades into a neutral slate ground rather
+    than a clay-orange one.
+  - ph-ball's tennis ball is genuinely yellow-green regardless of
+    surface; its background is now the same neutral wash as ph-court.
+  - ph-grass is a plain green wash for generic activity photos — it was
+    never a claim that the club has grass courts, so it's unchanged.
 */
-@utility ph-clay {
+@utility ph-court {
   background:
     radial-gradient(120% 90% at 15% 10%, rgb(255 255 255 / 0.18) 0%, transparent 55%),
-    linear-gradient(160deg, #c9673e 0%, #b4532a 50%, #8f3f1e 100%);
+    linear-gradient(160deg, #9fc75d 0%, #52676d 55%, #33454a 100%);
 }
 @utility ph-dusk {
   background:
     radial-gradient(60% 40% at 50% 0%, rgb(226 234 92 / 0.35) 0%, transparent 60%),
-    linear-gradient(180deg, #15291d 0%, #2f4a3a 42%, #7e3719 78%, #9a4520 100%);
+    linear-gradient(180deg, #202d30 0%, #33454a 40%, #c9a227 68%, #52676d 88%, #33454a 100%);
 }
 @utility ph-grass {
   background:
@@ -164,5 +173,5 @@
 @utility ph-ball {
   background:
     radial-gradient(circle at 62% 58%, #e2ea5c 0 27%, #b9c13c 27% 28%, transparent 29%),
-    linear-gradient(160deg, #b4532a 0%, #9a4520 60%, #7e3719 100%);
+    linear-gradient(160deg, #9fc75d 0%, #52676d 60%, #33454a 100%);
 }

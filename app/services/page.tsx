@@ -11,7 +11,7 @@ import { SectionHeading } from "@/components/SectionHeading";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Private lessons, clinics, court time, junior camps, leagues and tournaments on lit clay courts in DeLand, Florida.",
+    "Private lessons, clinics, court time, junior camps, leagues and tournaments on lit courts in DeLand, Florida.",
   openGraph: { title: "Services", url: "/services" },
 };
 
@@ -30,7 +30,7 @@ export default async function ServicesPage() {
         <SectionHeading
           as="h1"
           eyebrow="Services"
-          title="Lessons, clinics and court time on clay"
+          title="Lessons, clinics and court time"
           lede={`Everything below is run by ${site.owner.firstName}. If you are not sure where to start, call or text and describe your game; he will point you to the right thing.`}
         />
       </Container>

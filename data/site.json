@@ -2,13 +2,13 @@
   "name": "DeLand Tennis Club",
   "shortName": "DeLand Tennis",
   "tagline": "Make tennis great again",
-  "todo": "TODO(fred): 'Make Tennis Great Again' is the tagline in the current site's browser title. It is used as the club motto in the hero. Keep it, or swap for something like 'Clay courts in the heart of DeLand'?",
-  "description": "Lit clay courts and a vintage clubhouse in DeLand, Florida. Private and group lessons, clinics, leagues, junior camps and court time for players of every age and level, run by USPTA pro Fred Schwan.",
+  "todo": "TODO(fred): 'Make Tennis Great Again' is the tagline in the current site's browser title. It is used as the club motto in the hero. Keep it, or swap for something like 'Tennis in the heart of DeLand'?",
+  "description": "Our lit courts and a vintage clubhouse in DeLand, Florida. Private and group lessons, clinics, leagues, junior camps and court time for players of every age and level, run by USPTA pro Fred Schwan.",
   "hero": {
-    "eyebrow": "Clay courts in DeLand, Florida",
-    "headline": "Six lit clay courts, a vintage clubhouse, and a pro who answers his phone.",
+    "eyebrow": "Tennis in DeLand, Florida",
+    "headline": "Our lit courts, a vintage clubhouse, and a pro who answers his phone.",
     "lede": "Lessons, clinics, leagues and court time for every age and level. Call or text to book a court or set up your first lesson.",
-    "todo": "TODO(fred): hero headline and lede are placeholder copy. Six courts comes from the current site; confirm the count."
+    "todo": "TODO(fred): hero headline and lede are placeholder copy. Earlier drafts said 'six lit clay courts', which came from research that turned out to describe a different DeLand-area venue — see facility.todo for the court count and surface, which need to be confirmed before either goes back in the headline."
   },
   "url": "https://www.delandtennis.com",
   "phone": "+13868379123",
@@ -54,19 +54,18 @@
     "title": "Manager and Director of Tennis",
     "credentials": "USPTA / USPTR Teaching Professional, 35+ years",
     "bio": [
-      "Fred Schwan is the Manager and Director of Tennis at DeLand Tennis Club. A USPTA and USPTR teaching professional with more than 35 years of experience, he brought the vintage clubhouse and clay courts at Country Club Corners back into action.",
+      "Fred Schwan is the Manager and Director of Tennis at DeLand Tennis Club. A USPTA and USPTR teaching professional with more than 35 years of experience, he brought the vintage clubhouse and courts at Country Club Corners back into action.",
       "He teaches players of every age and ability, from a first swing to tournament play, and runs the club's clinics, leagues, junior programs and events.",
       "Fred's goal is simple: bring the joy of tennis back to Volusia County, one player at a time."
     ]
   },
   "facility": {
-    "courtCount": 6,
-    "surface": "clay",
     "lit": true,
     "highlights": [
-      "Six clay courts, all lit for evening play",
+      "Courts lit for evening play",
       "A vintage clubhouse, back in action",
       "Programs for every age and level, beginner to tournament"
-    ]
+    ],
+    "todo": "TODO(fred): court count and surface (hard court, clay, Har-Tru, etc.) are unverified. Earlier content here said 'six clay courts', which turned out to be pulled from research describing a different DeLand-area tennis facility, not this club. Please confirm the real number of courts and the surface so we can add them back — until then the site says 'our courts' with no count or surface."
   }
 }
