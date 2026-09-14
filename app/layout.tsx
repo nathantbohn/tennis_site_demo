@@ -44,7 +44,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export const viewport: Viewport = {
-  themeColor: "#fbf7f0",
+  themeColor: "#cee3de",
   width: "device-width",
   initialScale: 1,
 };
@@ -56,7 +56,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
       <body className="flex min-h-full flex-col">
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-court-900 focus:px-4 focus:py-2 focus:text-sand-50"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-slate-800 focus:px-4 focus:py-2 focus:text-white"
         >
           Skip to content
         </a>

@@ -24,7 +24,7 @@ export function LatestPosts({ posts, site }: { posts: Post[]; site: SiteInfo }) 
               href={instagram.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex min-h-11 items-center gap-1.5 font-medium text-clay-700 underline decoration-clay-300 underline-offset-4 hover:decoration-clay-700"
+              className="inline-flex min-h-11 items-center gap-1.5 font-medium text-slate-800 underline decoration-aqua-200 underline-offset-4 hover:decoration-slate-800"
             >
               Follow {instagram.handle}
               <ExternalIcon />
@@ -47,7 +47,7 @@ export function LatestPosts({ posts, site }: { posts: Post[]; site: SiteInfo }) 
                     href={post.permalink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-2 inline-flex min-h-11 items-center gap-1 text-sm font-medium text-clay-700 underline decoration-clay-300 underline-offset-4 hover:decoration-clay-700"
+                    className="mt-2 inline-flex min-h-11 items-center gap-1 text-sm font-medium text-slate-800 underline decoration-aqua-200 underline-offset-4 hover:decoration-slate-800"
                   >
                     View post
                     <ExternalIcon className="h-3.5 w-3.5" />

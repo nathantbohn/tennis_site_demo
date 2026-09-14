@@ -1,3 +1,5 @@
+import { readFile } from "node:fs/promises";
+import path from "node:path";
 import { ImageResponse } from "next/og";
 import { getSite } from "@/lib/content";
 import { formatPhone } from "@/lib/phone";
@@ -8,6 +10,9 @@ export const contentType = "image/png";
 
 export default async function OpenGraphImage() {
   const site = await getSite();
+  const logoBuffer = await readFile(path.join(process.cwd(), "public", "logo-og.png"));
+  const logoDataUrl = `data:image/png;base64,${logoBuffer.toString("base64")}`;
+
   return new ImageResponse(
     (
       <div
@@ -15,8 +20,8 @@ export default async function OpenGraphImage() {
           width: "100%",
           height: "100%",
           display: "flex",
-          background: "#fbf7f0",
-          color: "#15291d",
+          background: "#cee3de",
+          color: "#33454a",
           fontFamily: "Georgia, serif",
         }}
       >
@@ -34,17 +39,19 @@ export default async function OpenGraphImage() {
               fontSize: 22,
               letterSpacing: 6,
               textTransform: "uppercase",
-              color: "#9a4520",
+              color: "#33454a",
               fontFamily: "sans-serif",
             }}
           >
-            {`${site.address.city}, ${site.address.state} · Clay courts`}
+            {`${site.address.city}, ${site.address.state} · Est. clay courts`}
           </div>
-          <div style={{ fontSize: 88, lineHeight: 1, marginTop: 20, fontWeight: 600 }}>{site.name}</div>
-          <div style={{ fontSize: 34, marginTop: 24, color: "#5c574f", fontStyle: "italic" }}>
+          <div style={{ fontSize: 84, lineHeight: 1, marginTop: 20, fontWeight: 600, color: "#33454a" }}>
+            {site.name}
+          </div>
+          <div style={{ fontSize: 34, marginTop: 24, color: "#37474b", fontStyle: "italic" }}>
             {`${site.tagline}.`}
           </div>
-          <div style={{ fontSize: 26, marginTop: 40, color: "#1c1a17", fontFamily: "sans-serif" }}>
+          <div style={{ fontSize: 26, marginTop: 40, color: "#10161a", fontFamily: "sans-serif" }}>
             {`${formatPhone(site.phone)} · ${site.address.street}`}
           </div>
         </div>
@@ -52,20 +59,13 @@ export default async function OpenGraphImage() {
           style={{
             display: "flex",
             flex: 1,
-            background: "linear-gradient(160deg, #c9673e 0%, #b4532a 50%, #8f3f1e 100%)",
+            background: "linear-gradient(160deg, #4e6165 0%, #33454a 55%, #202d30 100%)",
             alignItems: "center",
             justifyContent: "center",
           }}
         >
-          <svg width="360" height="240" viewBox="0 0 400 260" fill="none" stroke="#fff" strokeWidth="4">
-            <rect x="40" y="30" width="320" height="200" />
-            <line x1="70" y1="30" x2="70" y2="230" />
-            <line x1="330" y1="30" x2="330" y2="230" />
-            <line x1="70" y1="82" x2="330" y2="82" />
-            <line x1="70" y1="178" x2="330" y2="178" />
-            <line x1="200" y1="82" x2="200" y2="178" />
-            <line x1="40" y1="130" x2="360" y2="130" strokeDasharray="8 7" strokeWidth="5" />
-          </svg>
+          {/* next/og requires a plain <img>, not next/image */}
+          <img src={logoDataUrl} width={340} height={340} alt="" />
         </div>
       </div>
     ),

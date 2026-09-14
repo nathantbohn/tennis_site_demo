@@ -1,28 +1,30 @@
+import Image from "next/image";
 import type { SiteInfo } from "@/data/types";
 import { formatTime } from "@/lib/format";
 import { formatPhone, mailtoHref, smsHref, telHref } from "@/lib/phone";
 import { Container } from "@/components/Container";
-import { BallMark, ExternalIcon } from "@/components/Icons";
+import { ExternalIcon } from "@/components/Icons";
+import logo from "@/public/logo.png";
 
 const linkClass =
-  "inline-flex min-h-11 items-center gap-1.5 text-sand-50 underline decoration-sand-50/40 underline-offset-4 hover:decoration-sand-50";
+  "inline-flex min-h-11 items-center gap-1.5 text-sage-100 underline decoration-sage-100/40 underline-offset-4 hover:decoration-white hover:text-white";
 
 export function SiteFooter({ site }: { site: SiteInfo }) {
   const { address } = site;
   return (
-    <footer className="mt-20 bg-court-900 text-sand-200">
+    <footer className="on-dark mt-20 bg-slate-800 text-sage-100">
       <Container className="grid gap-10 py-14 md:grid-cols-[1.4fr_1fr_1fr_1fr] md:gap-8">
         <div>
           <p className="flex items-center gap-2.5">
-            <BallMark className="h-8 w-8" />
-            <span className="font-display soft text-2xl font-semibold text-sand-50">{site.name}</span>
+            <Image src={logo} alt="" className="h-10 w-10" />
+            <span className="font-display soft text-2xl font-semibold text-white">{site.name}</span>
           </p>
-          <p className="mt-3 font-display text-lg italic text-clay-300">{site.tagline}.</p>
+          <p className="mt-3 font-display text-lg italic text-lime-300">{site.tagline}.</p>
           <p className="mt-4 max-w-sm text-sm leading-relaxed">{site.description}</p>
         </div>
 
         <div>
-          <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-clay-300">Visit</h2>
+          <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-lime-300">Visit</h2>
           <address className="mt-3 text-sm not-italic leading-relaxed">
             {address.street}
             <br />
@@ -30,7 +32,7 @@ export function SiteFooter({ site }: { site: SiteInfo }) {
             {address.landmark ? (
               <>
                 <br />
-                <span className="text-sand-300">{address.landmark}</span>
+                <span className="text-sage-100/80">{address.landmark}</span>
               </>
             ) : null}
           </address>
@@ -40,7 +42,7 @@ export function SiteFooter({ site }: { site: SiteInfo }) {
         </div>
 
         <div>
-          <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-clay-300">Hours</h2>
+          <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-lime-300">Hours</h2>
           <dl className="mt-3 text-sm leading-relaxed">
             {site.hours.map((h) => (
               <div key={h.label} className="flex justify-between gap-3">
@@ -51,11 +53,11 @@ export function SiteFooter({ site }: { site: SiteInfo }) {
               </div>
             ))}
           </dl>
-          {site.hoursNote ? <p className="mt-2 text-xs leading-relaxed text-sand-300">{site.hoursNote}</p> : null}
+          {site.hoursNote ? <p className="mt-2 text-xs leading-relaxed text-sage-100/80">{site.hoursNote}</p> : null}
         </div>
 
         <div>
-          <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-clay-300">Contact</h2>
+          <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-lime-300">Contact</h2>
           <ul className="mt-2 text-sm">
             <li>
               <a href={telHref(site.phone)} className={linkClass}>
@@ -90,8 +92,8 @@ export function SiteFooter({ site }: { site: SiteInfo }) {
           </ul>
         </div>
       </Container>
-      <div className="border-t border-sand-50/10">
-        <Container className="flex flex-col gap-1 py-5 text-xs text-sand-300 sm:flex-row sm:justify-between">
+      <div className="border-t border-white/10">
+        <Container className="flex flex-col gap-1 py-5 text-xs text-sage-100/80 sm:flex-row sm:justify-between">
           <p>
             © {new Date().getFullYear()} {site.name}. All times Eastern.
           </p>

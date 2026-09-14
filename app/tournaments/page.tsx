@@ -36,21 +36,21 @@ export default async function TournamentsPage() {
 
       <Container as="section" className="mt-12 md:mt-16">
         <h2 className="sr-only">Upcoming tournaments</h2>
-        <ol className="divide-y divide-sand-200 border-y border-sand-200">
+        <ol className="divide-y divide-slate-500/20 border-y border-slate-500/20">
           {tournaments.map((t) => (
             <li key={t.id} id={t.id} className="scroll-mt-32 py-8 md:grid md:grid-cols-12 md:gap-10 md:py-10">
               <div className="md:col-span-4">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-clay-700">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-800">
                   {formatDateRange(t.startDate, t.endDate)}
                 </p>
-                <h3 className="font-display soft mt-2 text-3xl font-medium leading-tight tracking-tight text-court-900">
+                <h3 className="font-display soft mt-2 text-3xl font-medium leading-tight tracking-tight text-slate-800">
                   {t.name}
                 </h3>
                 <p className="mt-3 text-sm text-ink-muted">
                   Applications close {formatCalendarDate(t.registrationCloses)}
                 </p>
                 <p className="mt-1 text-sm">
-                  <span className="font-display text-xl font-medium text-court-900">{formatPrice(t.entryFee)}</span>{" "}
+                  <span className="font-display text-xl font-medium text-slate-800">{formatPrice(t.entryFee)}</span>{" "}
                   <span className="text-ink-muted">{t.entryFeeNote ?? "per player"}</span>
                 </p>
               </div>
@@ -61,7 +61,7 @@ export default async function TournamentsPage() {
                 </p>
                 <ul className="mt-4 flex flex-wrap gap-2" aria-label={`${t.name} divisions`}>
                   {t.divisions.map((d) => (
-                    <li key={d} className="rounded-full bg-sand-100 px-3 py-1.5 text-sm ring-1 ring-inset ring-sand-300">
+                    <li key={d} className="rounded-full bg-aqua-100 px-3 py-1.5 text-sm ring-1 ring-inset ring-slate-500/30">
                       {d}
                     </li>
                   ))}

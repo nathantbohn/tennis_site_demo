@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 };
 
 const actionClass =
-  "flex min-h-20 items-center gap-4 rounded-2xl bg-white px-5 py-4 text-left ring-1 ring-inset ring-sand-300 transition-colors hover:bg-sand-100";
+  "flex min-h-20 items-center gap-4 rounded-2xl bg-white px-5 py-4 text-left ring-1 ring-inset ring-slate-500/30 transition-colors hover:bg-sage-100";
 
 export default async function ContactPage() {
   const site = await getSite();
@@ -36,7 +36,7 @@ export default async function ContactPage() {
 
         <div className="mt-10 grid gap-3 sm:grid-cols-2">
           <a href={telHref(site.phone)} className={actionClass}>
-            <PhoneIcon className="h-6 w-6 shrink-0 text-clay-700" />
+            <PhoneIcon className="h-6 w-6 shrink-0 text-slate-800" />
             <span>
               <span className="block text-xs font-semibold uppercase tracking-[0.16em] text-ink-muted">Call</span>
               <span className="block text-lg font-semibold">{formatPhone(site.phone)}</span>
@@ -44,7 +44,7 @@ export default async function ContactPage() {
           </a>
           {site.phoneAcceptsSms ? (
             <a href={smsHref(site.phone)} className={actionClass}>
-              <MessageIcon className="h-6 w-6 shrink-0 text-clay-700" />
+              <MessageIcon className="h-6 w-6 shrink-0 text-slate-800" />
               <span>
                 <span className="block text-xs font-semibold uppercase tracking-[0.16em] text-ink-muted">Text</span>
                 <span className="block text-lg font-semibold">{formatPhone(site.phone)}</span>
@@ -52,14 +52,14 @@ export default async function ContactPage() {
             </a>
           ) : null}
           <a href={mailtoHref(site.email)} className={actionClass}>
-            <MailIcon className="h-6 w-6 shrink-0 text-clay-700" />
+            <MailIcon className="h-6 w-6 shrink-0 text-slate-800" />
             <span className="min-w-0">
               <span className="block text-xs font-semibold uppercase tracking-[0.16em] text-ink-muted">Email</span>
               <span className="block break-all text-lg font-semibold">{site.email}</span>
             </span>
           </a>
           <a href={site.links.directions} target="_blank" rel="noopener noreferrer" className={actionClass}>
-            <PinIcon className="h-6 w-6 shrink-0 text-clay-700" />
+            <PinIcon className="h-6 w-6 shrink-0 text-slate-800" />
             <span>
               <span className="block text-xs font-semibold uppercase tracking-[0.16em] text-ink-muted">Directions</span>
               <span className="block text-lg font-semibold">
@@ -102,21 +102,21 @@ export default async function ContactPage() {
           </div>
         </div>
         <div className="md:col-span-5">
-          <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-clay-700">Where</h2>
-          <address className="font-display soft mt-2 text-2xl not-italic leading-snug text-court-900">
+          <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-800">Where</h2>
+          <address className="font-display soft mt-2 text-2xl not-italic leading-snug text-slate-800">
             {address.street}
             <br />
             {address.city}, {address.state} {address.zip}
           </address>
           {address.landmark ? <p className="mt-2 text-ink-muted">{address.landmark}.</p> : null}
 
-          <h2 className="mt-8 text-xs font-semibold uppercase tracking-[0.18em] text-clay-700">When</h2>
-          <p className="font-display soft mt-2 text-2xl leading-snug text-court-900">
+          <h2 className="mt-8 text-xs font-semibold uppercase tracking-[0.18em] text-slate-800">When</h2>
+          <p className="font-display soft mt-2 text-2xl leading-snug text-slate-800">
             {hours.label}, {formatTime(hours.open)} – {formatTime(hours.close)}
           </p>
           {site.hoursNote ? <p className="mt-2 leading-relaxed text-ink-muted">{site.hoursNote}</p> : null}
 
-          <h2 className="mt-8 text-xs font-semibold uppercase tracking-[0.18em] text-clay-700">Follow</h2>
+          <h2 className="mt-8 text-xs font-semibold uppercase tracking-[0.18em] text-slate-800">Follow</h2>
           <ul className="mt-2 space-y-1">
             {site.social.map((s) => (
               <li key={s.platform}>
@@ -124,7 +124,7 @@ export default async function ContactPage() {
                   href={s.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex min-h-11 items-center gap-1.5 font-medium underline decoration-clay-300 underline-offset-4 hover:decoration-clay-700"
+                  className="inline-flex min-h-11 items-center gap-1.5 font-medium underline decoration-aqua-200 underline-offset-4 hover:decoration-slate-800"
                 >
                   {s.platform === "instagram" ? `Instagram ${s.handle}` : "Facebook"}
                   <ExternalIcon />
@@ -140,25 +140,25 @@ export default async function ContactPage() {
         <section
           id="book"
           aria-labelledby="book-heading"
-          className="scroll-mt-32 rounded-3xl bg-court-900 p-6 text-sand-50 sm:p-10 md:scroll-mt-24 md:grid md:grid-cols-12 md:gap-10"
+          className="on-dark scroll-mt-32 rounded-3xl bg-slate-800 p-6 text-white sm:p-10 md:scroll-mt-24 md:grid md:grid-cols-12 md:gap-10"
         >
           <div className="md:col-span-7">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-clay-300">Book a court</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-lime-300">Book a court</p>
             <h2 id="book-heading" className="font-display soft mt-2 text-3xl font-medium tracking-tight sm:text-4xl">
               Reserve by phone or text
             </h2>
-            <p className="mt-4 leading-relaxed text-sand-200">
+            <p className="mt-4 leading-relaxed text-sage-100">
               Tell {owner.firstName} the day and time you want and how many players. He confirms by
               text. Same-day courts are usually available; evenings under the lights go first.
             </p>
-            <ul className="mt-5 space-y-2 text-[0.9375rem] text-sand-200">
+            <ul className="mt-5 space-y-2 text-[0.9375rem] text-sage-100">
               {[
                 `${numberWord(site.facility.courtCount).charAt(0).toUpperCase()}${numberWord(site.facility.courtCount).slice(1)} ${site.facility.surface} courts, all lit`,
                 "Hourly reservations, walk-ins when a court is free",
                 "ACE PASS holders: just say your name",
               ].map((line) => (
                 <li key={line} className="flex items-start gap-2.5">
-                  <CheckIcon className="mt-1 h-4 w-4 shrink-0 text-ball" />
+                  <CheckIcon className="mt-1 h-4 w-4 shrink-0 text-lime-500" />
                   {line}
                 </li>
               ))}
@@ -196,8 +196,8 @@ export default async function ContactPage() {
               title="A vintage clubhouse, back in action"
               lede={site.description}
             />
-            <h3 className="font-display soft mt-10 text-2xl font-medium text-court-900">{owner.name}</h3>
-            <p className="mt-1 text-sm font-medium text-clay-700">
+            <h3 className="font-display soft mt-10 text-2xl font-medium text-slate-800">{owner.name}</h3>
+            <p className="mt-1 text-sm font-medium text-slate-800">
               {owner.title} · {owner.credentials}
             </p>
             <div className="mt-4 space-y-4 leading-relaxed">
@@ -207,7 +207,10 @@ export default async function ContactPage() {
             </div>
             <ul className="mt-8 flex flex-wrap gap-2" aria-label="Facility highlights">
               {site.facility.highlights.map((h) => (
-                <li key={h} className="rounded-full bg-court-100 px-3 py-1.5 text-sm font-medium text-court-800">
+                <li
+                  key={h}
+                  className="rounded-full bg-aqua-100 px-3 py-1.5 text-sm font-medium text-slate-800 ring-1 ring-inset ring-slate-500/20"
+                >
                   {h}
                 </li>
               ))}

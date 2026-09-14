@@ -43,7 +43,7 @@ function validate(values: Values, tournament: Tournament | undefined): Errors {
 }
 
 const inputClass =
-  "block w-full min-h-12 rounded-xl border border-ink/20 bg-white px-4 text-base text-ink placeholder:text-ink-muted/70 focus:border-clay-600 focus:outline-none focus:ring-2 focus:ring-clay-600/30 aria-[invalid=true]:border-clay-700 aria-[invalid=true]:ring-2 aria-[invalid=true]:ring-clay-600/30";
+  "block w-full min-h-12 rounded-xl border border-slate-500/30 bg-white px-4 text-base text-ink placeholder:text-ink-muted/70 focus:border-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-800/25 aria-[invalid=true]:border-slate-800 aria-[invalid=true]:ring-2 aria-[invalid=true]:ring-slate-800/25";
 
 function Field({
   id,
@@ -93,7 +93,7 @@ function Field({
         })}
       </div>
       {error ? (
-        <p id={errorId} className="mt-1.5 text-sm font-medium text-clay-800">
+        <p id={errorId} className="mt-1.5 text-sm font-medium text-slate-800">
           {error}
         </p>
       ) : null}
@@ -172,7 +172,7 @@ export function TournamentForm({ tournaments, owner }: { tournaments: Tournament
 
   if (tournaments.length === 0) {
     return (
-      <p className="rounded-2xl bg-sand-100 p-6 leading-relaxed">
+      <p className="rounded-2xl bg-sage-100 p-6 leading-relaxed">
         No tournaments are taking applications right now. Text {owner.firstName} at{" "}
         <a href={`sms:${owner.phone}`} className="font-medium underline underline-offset-4">
           {formatPhone(owner.phone)}
@@ -185,11 +185,11 @@ export function TournamentForm({ tournaments, owner }: { tournaments: Tournament
   if (status === "done" && receipt && tournament) {
     const app = receipt.application;
     return (
-      <div role="status" className="rounded-3xl bg-court-100 p-6 sm:p-10">
-        <span className="flex h-12 w-12 items-center justify-center rounded-full bg-court-700 text-white">
+      <div role="status" className="rounded-3xl bg-lime-100 p-6 sm:p-10">
+        <span className="flex h-12 w-12 items-center justify-center rounded-full bg-lime-500 text-ink">
           <CheckIcon className="h-6 w-6" />
         </span>
-        <h3 className="font-display soft mt-5 text-3xl font-medium tracking-tight text-court-900">
+        <h3 className="font-display soft mt-5 text-3xl font-medium tracking-tight text-slate-800">
           You are in the draw, {app.fullName.split(" ")[0]}.
         </h3>
         <p className="mt-3 leading-relaxed">
@@ -238,7 +238,10 @@ export function TournamentForm({ tournaments, owner }: { tournaments: Tournament
       </p>
 
       {errorCount > 0 ? (
-        <p role="alert" className="rounded-xl bg-clay-100 px-4 py-3 text-sm font-medium text-clay-800">
+        <p
+          role="alert"
+          className="rounded-xl bg-sage-100 px-4 py-3 text-sm font-medium text-slate-800 ring-1 ring-inset ring-slate-500/30"
+        >
           Please fix the {errorCount === 1 ? "highlighted field" : `${errorCount} highlighted fields`} below.
         </p>
       ) : null}
