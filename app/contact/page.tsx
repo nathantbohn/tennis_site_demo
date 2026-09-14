@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getSite } from "@/lib/content";
 import { formatTime } from "@/lib/format";
 import { formatPhone, mailtoHref, smsHref, telHref } from "@/lib/phone";
+import { socialLinkLabel } from "@/lib/social";
 import { ButtonLink } from "@/components/ButtonLink";
 import { Container } from "@/components/Container";
 import { CheckIcon, ExternalIcon, MailIcon, MessageIcon, PhoneIcon, PinIcon } from "@/components/Icons";
@@ -126,7 +127,7 @@ export default async function ContactPage() {
                   rel="noopener noreferrer"
                   className="inline-flex min-h-11 items-center gap-1.5 font-medium underline decoration-aqua-200 underline-offset-4 hover:decoration-slate-800"
                 >
-                  {s.platform === "instagram" ? `Instagram ${s.handle}` : "Facebook"}
+                  {socialLinkLabel(s)}
                   <ExternalIcon />
                 </a>
               </li>

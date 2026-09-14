@@ -2,6 +2,7 @@ import Image from "next/image";
 import type { SiteInfo } from "@/data/types";
 import { formatTime } from "@/lib/format";
 import { formatPhone, mailtoHref, smsHref, telHref } from "@/lib/phone";
+import { socialLinkLabel } from "@/lib/social";
 import { Container } from "@/components/Container";
 import { ExternalIcon } from "@/components/Icons";
 import logo from "@/public/logo.png";
@@ -79,7 +80,7 @@ export function SiteFooter({ site }: { site: SiteInfo }) {
             {site.social.map((s) => (
               <li key={s.platform}>
                 <a href={s.url} className={linkClass} target="_blank" rel="noopener noreferrer">
-                  {s.platform === "instagram" ? `Instagram ${s.handle}` : "Facebook"}
+                  {socialLinkLabel(s)}
                   <ExternalIcon className="h-3.5 w-3.5" />
                 </a>
               </li>

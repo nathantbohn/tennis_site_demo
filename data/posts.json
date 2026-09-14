@@ -1,22 +1,20 @@
 [
   {
     "id": "post-2026-09-10",
-    "source": "instagram",
+    "source": "club",
     "publishedAt": "2026-09-10T22:15:00Z",
     "body": "Courts freshly lined for the fall season. The lights come on at 7, and September evenings out here are hard to beat. Come hit.",
-    "permalink": "https://www.instagram.com/fred.deland/",
     "image": {
       "variant": "dusk",
       "alt": "A freshly lined court at dusk with the floodlights on"
     },
-    "todo": "TODO(fred): sample post. In Phase 2 this section pulls your three most recent Instagram posts automatically."
+    "todo": "TODO(fred): sample post, written as a generic club update since there's no Instagram account to pull from yet (see the `todo` on site.social in site.json). No permalink for now — one of these three used to link to instagram.com/fred.deland, which was the wrong account. Once a real Instagram is set up in Phase 2, this can go back to `\"source\": \"instagram\"` with a real permalink."
   },
   {
     "id": "post-2026-09-05",
-    "source": "instagram",
+    "source": "club",
     "publishedAt": "2026-09-05T18:40:00Z",
     "body": "Saturday round robin was full again: 16 players, three hours, zero rain delays. Next one is Saturday at 10. Text 386-837-9123 to get on the list.",
-    "permalink": "https://www.instagram.com/fred.deland/",
     "image": {
       "variant": "grass",
       "alt": "Sixteen players posing at the net after the Saturday round robin"
@@ -25,10 +23,9 @@
   },
   {
     "id": "post-2026-08-28",
-    "source": "instagram",
+    "source": "club",
     "publishedAt": "2026-08-28T20:05:00Z",
     "body": "Junior after-school tennis starts Monday. Ages 8 to 12, Mondays and Wednesdays at 4. Racquets available to borrow, so just bring sneakers and water.",
-    "permalink": "https://www.instagram.com/fred.deland/",
     "image": {
       "variant": "ball",
       "alt": "A basket of red and orange junior tennis balls on the court"
