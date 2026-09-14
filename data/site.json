@@ -32,15 +32,10 @@
   "hoursNote": "Fred is at the club every day, but please call ahead for an appointment. His work for the club also takes him out into the community, local schools and businesses.",
   "social": [
     {
-      "platform": "instagram",
-      "handle": "@fred.deland",
-      "url": "https://www.instagram.com/fred.deland/",
-      "todo": "TODO(fred): confirm the club's Instagram account. @fred.deland is the only one we found. Phase 2 pulls the 'Latest' section from this account, so it needs to be the one you post to."
-    },
-    {
       "platform": "facebook",
       "handle": "DeLand Tennis Club",
-      "url": "https://www.facebook.com/p/DeLand-Tennis-Club-100043574746215/"
+      "url": "https://www.facebook.com/p/DeLand-Tennis-Club-100043574746215/",
+      "todo": "TODO(fred): this list drives every social link on the site (footer, contact page, the 'Latest' section's follow link, and the sitemap's structured data) — add or remove an entry here and the whole site follows, no code change needed. Two things to confirm: (1) the club has no Instagram account right now; @fred.deland (used in an earlier draft) was the wrong account and has been removed. An Instagram entry is planned for Phase 2 once a real account exists — add it back here when it does. (2) this Facebook URL: search turned up two different 'DeLand Tennis Club' pages (this one, with 548 likes and 12 reviews, and https://www.facebook.com/DeLand-Tennis-Club-698242070286027/ with 468 likes) and delandtennis.com itself couldn't be reached from here to see which one it links to. This is the more active-looking of the two, but please confirm it's the club's real page."
     }
   ],
   "links": {
