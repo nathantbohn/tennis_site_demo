@@ -1,0 +1,72 @@
+{
+  "name": "DeLand Tennis Club",
+  "shortName": "DeLand Tennis",
+  "tagline": "Make tennis great again",
+  "todo": "TODO(fred): 'Make Tennis Great Again' is the tagline in the current site's browser title. It is used as the club motto in the hero. Keep it, or swap for something like 'Clay courts in the heart of DeLand'?",
+  "description": "Lit clay courts and a vintage clubhouse in DeLand, Florida. Private and group lessons, clinics, leagues, junior camps and court time for players of every age and level, run by USPTA pro Fred Schwan.",
+  "hero": {
+    "eyebrow": "Clay courts in DeLand, Florida",
+    "headline": "Six lit clay courts, a vintage clubhouse, and a pro who answers his phone.",
+    "lede": "Lessons, clinics, leagues and court time for every age and level. Call or text to book a court or set up your first lesson.",
+    "todo": "TODO(fred): hero headline and lede are placeholder copy. Six courts comes from the current site; confirm the count."
+  },
+  "url": "https://www.delandtennis.com",
+  "phone": "+13868379123",
+  "phoneAcceptsSms": true,
+  "email": "delandtennisclub@gmail.com",
+  "address": {
+    "street": "2285 Country Club Rd",
+    "landmark": "Behind Publix at Country Club Corners",
+    "city": "DeLand",
+    "state": "FL",
+    "zip": "32724"
+  },
+  "hours": [
+    {
+      "label": "Every day",
+      "open": "07:00",
+      "close": "19:00",
+      "todo": "TODO(fred): hours pulled from the club's Google/Yahoo listing (7 AM – 7 PM daily). Confirm, and confirm whether lit courts stay open later in the evening."
+    }
+  ],
+  "hoursNote": "Fred is at the club every day, but please call ahead for an appointment. His work for the club also takes him out into the community, local schools and businesses.",
+  "social": [
+    {
+      "platform": "instagram",
+      "handle": "@fred.deland",
+      "url": "https://www.instagram.com/fred.deland/",
+      "todo": "TODO(fred): confirm the club's Instagram account. @fred.deland is the only one we found. Phase 2 pulls the 'Latest' section from this account, so it needs to be the one you post to."
+    },
+    {
+      "platform": "facebook",
+      "handle": "DeLand Tennis Club",
+      "url": "https://www.facebook.com/p/DeLand-Tennis-Club-100043574746215/"
+    }
+  ],
+  "links": {
+    "googleBusiness": "https://www.google.com/maps/search/?api=1&query=DeLand%20Tennis%20Club%202285%20Country%20Club%20Rd%20DeLand%20FL%2032724",
+    "map": "https://www.google.com/maps/search/?api=1&query=2285%20Country%20Club%20Rd%2C%20DeLand%2C%20FL%2032724",
+    "directions": "https://www.google.com/maps/dir/?api=1&destination=2285%20Country%20Club%20Rd%2C%20DeLand%2C%20FL%2032724"
+  },
+  "owner": {
+    "name": "Fred Schwan",
+    "firstName": "Fred",
+    "title": "Manager and Director of Tennis",
+    "credentials": "USPTA / USPTR Teaching Professional, 35+ years",
+    "bio": [
+      "Fred Schwan is the Manager and Director of Tennis at DeLand Tennis Club. A USPTA and USPTR teaching professional with more than 35 years of experience, he brought the vintage clubhouse and clay courts at Country Club Corners back into action.",
+      "He teaches players of every age and ability, from a first swing to tournament play, and runs the club's clinics, leagues, junior programs and events.",
+      "Fred's goal is simple: bring the joy of tennis back to Volusia County, one player at a time."
+    ]
+  },
+  "facility": {
+    "courtCount": 6,
+    "surface": "clay",
+    "lit": true,
+    "highlights": [
+      "Six clay courts, all lit for evening play",
+      "A vintage clubhouse, back in action",
+      "Programs for every age and level, beginner to tournament"
+    ]
+  }
+}
