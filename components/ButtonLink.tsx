@@ -1,16 +1,19 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 
-type Variant = "primary" | "secondary" | "quiet";
+type Variant = "primary" | "secondary" | "quiet" | "onDark";
 type Size = "md" | "lg";
 
 const base =
   "inline-flex items-center justify-center gap-2 rounded-full font-semibold leading-none transition-colors duration-150 select-none";
 
 const variants: Record<Variant, string> = {
-  primary: "bg-clay-700 text-white hover:bg-clay-800 active:bg-clay-800",
-  secondary: "bg-court-100 text-court-800 hover:bg-court-200 active:bg-court-200",
-  quiet: "bg-transparent text-ink ring-1 ring-inset ring-ink/15 hover:bg-sand-100 active:bg-sand-200",
+  primary: "bg-lime-500 text-ink hover:bg-lime-600 active:bg-lime-600",
+  secondary:
+    "bg-cream-100 text-ink ring-1 ring-inset ring-slate-500/25 hover:bg-aqua-100 active:bg-aqua-200",
+  quiet: "bg-transparent text-ink ring-1 ring-inset ring-slate-500/40 hover:bg-sage-100 active:bg-aqua-100",
+  /** For buttons that sit directly on a dark surface (the header, footer, dark CTA panels). */
+  onDark: "bg-transparent text-white ring-1 ring-inset ring-white/40 hover:bg-white/10 active:bg-white/15",
 };
 
 const sizes: Record<Size, string> = {

@@ -1,39 +1,62 @@
 @import "tailwindcss";
 
 /*
-  Palette: clay-court terracotta, grass-court green, warm sand neutrals.
-  Every text/background pair used on the site was checked against WCAG AA.
+  Palette: derived from the club's own site (delandtennis.com) — sage and
+  aqua backgrounds, dark blue-gray structure, a lime-green accent, pale
+  green/cream highlight tones, and a single dark red reserved for one
+  heading. Every text/background pair used on the site is checked against
+  WCAG AA (see palette notes in the PR description for the full table).
+
+  Two reference colors are deliberately NOT used as-is:
+  - The reference header background #788B8F fails AA with white text
+    (3.57:1). --color-header below is a darkened #4E6165 that keeps the
+    same hue and reaches 6.5:1. The literal #788B8F is kept as
+    --color-slate-400 for decorative-only use (never text, never a
+    boundary that needs 3:1).
+  - The reference lime #9FC75D cannot pass AA as small text on any of the
+    site's light backgrounds (it tops out around 2.6:1) — that is true of
+    almost any yellow-green at brand saturation. Lime is used here as a
+    background (with dark ink text on top) and as a decorative accent on
+    dark surfaces, never as text color on a light background.
 */
 @theme {
   /* Larger phones get a little more breathing room in the nav. */
   --breakpoint-xs: 26rem;
 
-  --color-sand-50: #fbf7f0;
-  --color-sand-100: #f4ede1;
-  --color-sand-200: #e8dcc8;
-  --color-sand-300: #d9c9ae;
+  /* Page background family (ref pageBg #CEE3DE). */
+  --color-sage-50: #cee3de;
+  --color-sage-100: #bfdad3;
 
-  --color-clay-100: #f6e3d7;
-  --color-clay-200: #f1cdb8;
-  --color-clay-300: #e7b79a;
-  --color-clay-500: #c9673e;
-  --color-clay-600: #b4532a;
-  --color-clay-700: #9a4520;
-  --color-clay-800: #7e3719;
+  /* Nav chip family (ref "nav light aqua" / "nav darker aqua"). */
+  --color-aqua-100: #c3e2da;
+  --color-aqua-200: #a9ccc4;
 
-  --color-court-100: #e3eee3;
-  --color-court-200: #c5dac7;
-  --color-court-500: #3f7f4f;
-  --color-court-600: #2f6b3f;
-  --color-court-700: #27563a;
-  --color-court-800: #1f3d2b;
-  --color-court-900: #15291d;
+  /* Structural blue-gray (ref headerBg #788B8F, ref divider #52676D). */
+  --color-slate-400: #788b8f;
+  --color-slate-500: #52676d;
+  --color-slate-800: #33454a;
+  --color-slate-900: #202d30;
 
-  --color-ink: #1c1a17;
-  --color-ink-muted: #5c574f;
-  --color-ball: #e2ea5c;
+  /* Header bar background only — darkened from the reference for AA white text. */
+  --color-header: #4e6165;
 
-  --shadow-lift: 0 1px 2px rgb(28 26 23 / 0.06), 0 12px 32px -12px rgb(28 26 23 / 0.18);
+  /* Lime accent (ref lime #9FC75D + ref paleGreen #E5F4C7). */
+  --color-lime-100: #e5f4c7;
+  --color-lime-200: #d4ea9e;
+  --color-lime-300: #bfdd7e;
+  --color-lime-500: #9fc75d;
+  --color-lime-600: #86b84a;
+
+  /* Highlight cream (ref paleCream #F0FAD2). */
+  --color-cream-100: #f0fad2;
+
+  /* Dark red, reserved for exactly one heading (ref #990000). */
+  --color-red-700: #990000;
+
+  --color-ink: #10161a;
+  --color-ink-muted: #37474b;
+
+  --shadow-lift: 0 1px 2px rgb(16 22 26 / 0.08), 0 12px 32px -12px rgb(16 22 26 / 0.22);
 }
 
 @theme inline {
@@ -58,20 +81,32 @@
     }
   }
   body {
-    @apply bg-sand-50 font-sans text-ink antialiased;
+    @apply bg-sage-50 font-sans text-ink antialiased;
     font-optical-sizing: auto;
     text-rendering: optimizeLegibility;
   }
   :focus-visible {
-    outline: 3px solid var(--color-clay-600);
+    outline: 3px solid var(--color-ink);
     outline-offset: 3px;
     border-radius: 2px;
   }
   ::selection {
-    background: var(--color-clay-200);
+    background: var(--color-lime-200);
   }
   strong {
     @apply font-semibold;
+  }
+}
+
+/*
+  Inside dark bands (the header, footer, and dark CTA panels) an ink focus
+  ring would nearly disappear. Apply .on-dark to any section whose own
+  background is --color-header or --color-slate-800 so its interactive
+  children get a ring that is actually visible against it.
+*/
+@layer utilities {
+  .on-dark :focus-visible {
+    outline-color: var(--color-white, #fff);
   }
 }
 
@@ -91,16 +126,31 @@
 /*
   Placeholder "photography". Solid and gradient blocks stand in for photos
   until the shoot; the alt text on each block is the shot list.
+
+  The court surface at this club is unverified (see facility.todo in
+  data/site.json) — an earlier draft assumed clay and colored these
+  terracotta accordingly, which was wrong. None of these placeholders
+  claim a specific surface color any more:
+  - ph-court is a generic, abstract wash in the site's own sage/lime/
+    slate palette — a stylized placeholder, not a photo of any real
+    surface.
+  - ph-dusk keeps its warm sunset glow (a sky color, independent of the
+    court below it) but now fades into a neutral slate ground rather
+    than a clay-orange one.
+  - ph-ball's tennis ball is genuinely yellow-green regardless of
+    surface; its background is now the same neutral wash as ph-court.
+  - ph-grass is a plain green wash for generic activity photos — it was
+    never a claim that the club has grass courts, so it's unchanged.
 */
-@utility ph-clay {
+@utility ph-court {
   background:
     radial-gradient(120% 90% at 15% 10%, rgb(255 255 255 / 0.18) 0%, transparent 55%),
-    linear-gradient(160deg, #c9673e 0%, #b4532a 50%, #8f3f1e 100%);
+    linear-gradient(160deg, #9fc75d 0%, #52676d 55%, #33454a 100%);
 }
 @utility ph-dusk {
   background:
     radial-gradient(60% 40% at 50% 0%, rgb(226 234 92 / 0.35) 0%, transparent 60%),
-    linear-gradient(180deg, #15291d 0%, #2f4a3a 42%, #7e3719 78%, #9a4520 100%);
+    linear-gradient(180deg, #202d30 0%, #33454a 40%, #c9a227 68%, #52676d 88%, #33454a 100%);
 }
 @utility ph-grass {
   background:
@@ -109,19 +159,19 @@
 }
 @utility ph-clubhouse {
   background:
-    linear-gradient(180deg, rgb(28 26 23 / 0) 0%, rgb(28 26 23 / 0.12) 100%),
-    repeating-linear-gradient(180deg, #f4ede1 0 18px, #e8dcc8 18px 21px);
+    linear-gradient(180deg, rgb(16 22 26 / 0) 0%, rgb(16 22 26 / 0.12) 100%),
+    repeating-linear-gradient(180deg, #e8f1ee 0 18px, #d8e9e3 18px 21px);
 }
 @utility ph-map {
   background:
-    linear-gradient(90deg, rgb(28 26 23 / 0.09) 1.5px, transparent 1.5px) 0 0 / 56px 56px,
-    linear-gradient(0deg, rgb(28 26 23 / 0.09) 1.5px, transparent 1.5px) 0 0 / 56px 56px,
-    linear-gradient(rgb(28 26 23 / 0.16), rgb(28 26 23 / 0.16)) 30% 0 / 5px 100% no-repeat,
-    linear-gradient(rgb(28 26 23 / 0.16), rgb(28 26 23 / 0.16)) 0 62% / 100% 5px no-repeat,
-    #f4ede1;
+    linear-gradient(90deg, rgb(16 22 26 / 0.1) 1.5px, transparent 1.5px) 0 0 / 56px 56px,
+    linear-gradient(0deg, rgb(16 22 26 / 0.1) 1.5px, transparent 1.5px) 0 0 / 56px 56px,
+    linear-gradient(rgb(16 22 26 / 0.18), rgb(16 22 26 / 0.18)) 30% 0 / 5px 100% no-repeat,
+    linear-gradient(rgb(16 22 26 / 0.18), rgb(16 22 26 / 0.18)) 0 62% / 100% 5px no-repeat,
+    #bfdad3;
 }
 @utility ph-ball {
   background:
     radial-gradient(circle at 62% 58%, #e2ea5c 0 27%, #b9c13c 27% 28%, transparent 29%),
-    linear-gradient(160deg, #b4532a 0%, #9a4520 60%, #7e3719 100%);
+    linear-gradient(160deg, #9fc75d 0%, #52676d 60%, #33454a 100%);
 }

@@ -2,11 +2,11 @@
   {
     "id": "private-lessons",
     "name": "Private lessons",
-    "tagline": "One-on-one with a USPTA pro, on clay.",
+    "tagline": "One-on-one with a USPTA pro.",
     "audience": "All ages and ability levels, from a first swing to match strategy.",
     "description": [
       "Every lesson is built around you: your goals, your game, your schedule. Fred has taught for more than 35 years and works with beginners, returning players, juniors and competitive adults.",
-      "Lessons run on the club's clay courts, which are easier on knees and reward patient, well-built points."
+      "Lessons run on the club's own courts, with plenty of time to slow the pace down and build the shot you came for."
     ],
     "includes": [
       "60-minute private or semi-private lesson",
@@ -16,8 +16,8 @@
     "pricingIds": ["private-lesson", "semi-private-lesson"],
     "cta": { "label": "Text Fred to book a lesson", "action": "text" },
     "image": {
-      "variant": "clay",
-      "alt": "Fred rallying with a student on a clay court, mid-morning light"
+      "variant": "court",
+      "alt": "Fred rallying with a student, mid-morning light"
     },
     "todo": "TODO(fred): the real site says 'private and group lessons for all ages and ability levels'. The lesson length, what's included and the wording of everything else here is placeholder. Confirm."
   },
@@ -46,10 +46,10 @@
   {
     "id": "court-time",
     "name": "Court time",
-    "tagline": "Six lit clay courts, open 7 to 7.",
+    "tagline": "Our lit courts, open 7 to 7.",
     "audience": "Anyone who wants to play. Bring a partner or ask Fred to find you one.",
     "description": [
-      "Reserve a court by phone or text and just show up. Courts are rolled and lined daily, and the lights make evening play the best time of day in a Florida summer.",
+      "Reserve a court by phone or text and just show up. Courts are lined and ready every day, and the lights make evening play the best time of day in a Florida summer.",
       "Play often? The ACE PASS covers five visits for one flat price."
     ],
     "includes": [
@@ -63,7 +63,7 @@
       "variant": "dusk",
       "alt": "Courts at dusk with the lights just switched on"
     },
-    "todo": "TODO(fred): 'courts rolled and lined daily' and hourly reservation details are placeholders. Confirm how court time is actually booked today."
+    "todo": "TODO(fred): 'courts lined and ready every day' and hourly reservation details are placeholders (an earlier draft said 'rolled', which is clay-specific maintenance — dropped since the surface isn't confirmed). Confirm how court time is actually booked today, and how the courts are actually maintained."
   },
   {
     "id": "juniors",

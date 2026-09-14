@@ -78,15 +78,19 @@ export function ExternalIcon({ className = "h-4 w-4" }: IconProps) {
   );
 }
 
-/** Clay ball with a chalk seam: the club monogram. */
+/**
+ * A tennis ball, drawn to match the favicon (app/icon.svg). Used for the
+ * ACE PASS visit dots — the club's logo (public/logo.png) carries the
+ * wordmark everywhere else.
+ */
 export function BallMark({ className = "h-8 w-8" }: IconProps) {
   return (
     <svg aria-hidden="true" viewBox="0 0 32 32" className={className}>
-      <circle cx="16" cy="16" r="15" fill="#b4532a" />
+      <circle cx="16" cy="16" r="15" fill="#7c9518" />
       <path
         d="M7 4.5c6 4 6 19 0 23M25 4.5c-6 4-6 19 0 23"
         fill="none"
-        stroke="#fbf7f0"
+        stroke="#10161a"
         strokeWidth="2.2"
         strokeLinecap="round"
       />

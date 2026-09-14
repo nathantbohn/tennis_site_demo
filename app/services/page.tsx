@@ -11,7 +11,7 @@ import { SectionHeading } from "@/components/SectionHeading";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Private lessons, clinics, court time, junior camps, leagues and tournaments on lit clay courts in DeLand, Florida.",
+    "Private lessons, clinics, court time, junior camps, leagues and tournaments on lit courts in DeLand, Florida.",
   openGraph: { title: "Services", url: "/services" },
 };
 
@@ -30,12 +30,12 @@ export default async function ServicesPage() {
         <SectionHeading
           as="h1"
           eyebrow="Services"
-          title="Lessons, clinics and court time on clay"
+          title="Lessons, clinics and court time"
           lede={`Everything below is run by ${site.owner.firstName}. If you are not sure where to start, call or text and describe your game; he will point you to the right thing.`}
         />
       </Container>
 
-      <div className="mt-8 divide-y divide-sand-200">
+      <div className="mt-8 divide-y divide-slate-500/20">
         {withPricing.map(({ service, pricing }, i) => {
           const flip = i % 2 === 1;
           const ctaContext = `I'm interested in ${service.name.toLowerCase()}.`;
@@ -54,14 +54,14 @@ export default async function ServicesPage() {
                   />
                 </div>
                 <div className={`md:col-span-7 ${flip ? "md:order-1" : ""}`}>
-                  <p className="font-display text-lg text-clay-600">{String(i + 1).padStart(2, "0")}</p>
+                  <p className="font-display text-lg text-slate-800">{String(i + 1).padStart(2, "0")}</p>
                   <h2
                     id={`${service.id}-title`}
-                    className="font-display soft mt-1 text-3xl font-medium leading-tight tracking-tight text-court-900 sm:text-4xl"
+                    className="font-display soft mt-1 text-3xl font-medium leading-tight tracking-tight text-slate-800 sm:text-4xl"
                   >
                     {service.name}
                   </h2>
-                  <p className="font-display mt-2 text-xl italic text-clay-700">{service.tagline}</p>
+                  <p className="font-display mt-2 text-xl italic text-slate-800">{service.tagline}</p>
                   <p className="mt-4 text-sm font-medium text-ink-muted">
                     <span className="font-semibold text-ink">For:</span> {service.audience}
                   </p>
@@ -73,7 +73,7 @@ export default async function ServicesPage() {
                   <ul className="mt-5 space-y-2">
                     {service.includes.map((line) => (
                       <li key={line} className="flex items-start gap-2.5 text-[0.9375rem]">
-                        <CheckIcon className="mt-1 h-4 w-4 shrink-0 text-court-600" />
+                        <CheckIcon className="mt-1 h-4 w-4 shrink-0 text-slate-500" />
                         {line}
                       </li>
                     ))}
@@ -83,10 +83,10 @@ export default async function ServicesPage() {
                       {pricing.map((item) => (
                         <li
                           key={item.id}
-                          className="rounded-full bg-sand-100 px-3 py-1.5 text-sm ring-1 ring-inset ring-sand-300"
+                          className="rounded-full bg-aqua-100 px-3 py-1.5 text-sm ring-1 ring-inset ring-slate-500/30"
                         >
                           <span className="font-medium">{item.name}</span>{" "}
-                          <span className="font-display text-base font-medium text-clay-700">
+                          <span className="font-display text-base font-medium text-slate-800">
                             {formatPrice(item.price)}
                           </span>{" "}
                           <span className="text-ink-muted">{item.unit}</span>

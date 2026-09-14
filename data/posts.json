@@ -3,11 +3,11 @@
     "id": "post-2026-09-10",
     "source": "instagram",
     "publishedAt": "2026-09-10T22:15:00Z",
-    "body": "Courts freshly rolled and lined for the fall season. The lights come on at 7, and September evenings on clay are hard to beat. Come hit.",
+    "body": "Courts freshly lined for the fall season. The lights come on at 7, and September evenings out here are hard to beat. Come hit.",
     "permalink": "https://www.instagram.com/fred.deland/",
     "image": {
       "variant": "dusk",
-      "alt": "Freshly lined clay court at dusk with the floodlights on"
+      "alt": "A freshly lined court at dusk with the floodlights on"
     },
     "todo": "TODO(fred): sample post. In Phase 2 this section pulls your three most recent Instagram posts automatically."
   },
@@ -31,7 +31,7 @@
     "permalink": "https://www.instagram.com/fred.deland/",
     "image": {
       "variant": "ball",
-      "alt": "A basket of red and orange junior tennis balls on a clay court"
+      "alt": "A basket of red and orange junior tennis balls on the court"
     },
     "todo": "TODO(fred): sample post."
   }

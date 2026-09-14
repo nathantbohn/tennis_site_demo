@@ -19,18 +19,18 @@ export function PriceList({ items }: { items: PriceItem[] }) {
           <section key={group.category} aria-labelledby={`pricing-${group.category}`}>
             <h3
               id={`pricing-${group.category}`}
-              className="text-xs font-semibold uppercase tracking-[0.18em] text-clay-700"
+              className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-800"
             >
               {group.label}
             </h3>
-            <ul className="mt-3 divide-y divide-sand-200">
+            <ul className="mt-3 divide-y divide-slate-500/20">
               {rows.map((item) => (
                 <li key={item.id} className="py-3.5">
                   <p className="flex items-baseline gap-2">
                     <span className="font-medium">{item.name}</span>
-                    <span aria-hidden="true" className="leader h-[1em] min-w-6 flex-1 text-sand-300" />
+                    <span aria-hidden="true" className="leader h-[1em] min-w-6 flex-1 text-slate-500/40" />
                     <span className="whitespace-nowrap text-right">
-                      <span className="font-display text-xl font-medium text-court-900">
+                      <span className="font-display text-xl font-medium text-slate-800">
                         {formatPrice(item.price)}
                       </span>
                       <span className="ml-1.5 text-xs text-ink-muted">{item.unit}</span>

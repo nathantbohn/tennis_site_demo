@@ -3,12 +3,12 @@ import type { ScheduleKind } from "@/data/types";
 import { DAY_LABELS, formatTimeRange } from "@/lib/format";
 
 export const KIND_META: Record<ScheduleKind, { label: string; dot: string }> = {
-  clinic: { label: "Clinic", dot: "bg-clay-600" },
-  lesson: { label: "Lesson", dot: "bg-clay-300" },
-  junior: { label: "Juniors", dot: "bg-ball ring-1 ring-court-700/30" },
-  league: { label: "League", dot: "bg-court-700" },
-  social: { label: "Social play", dot: "bg-court-200 ring-1 ring-court-700/30" },
-  open: { label: "Open play", dot: "bg-sand-300 ring-1 ring-ink/20" },
+  clinic: { label: "Clinic", dot: "bg-lime-600" },
+  lesson: { label: "Lesson", dot: "bg-lime-300 ring-1 ring-slate-500/30" },
+  junior: { label: "Juniors", dot: "bg-cream-100 ring-1 ring-slate-500/30" },
+  league: { label: "League", dot: "bg-slate-800" },
+  social: { label: "Social play", dot: "bg-aqua-200 ring-1 ring-slate-500/30" },
+  open: { label: "Open play", dot: "bg-slate-400 ring-1 ring-ink/20" },
 };
 
 function KindDot({ kind }: { kind: ScheduleKind }) {
@@ -31,8 +31,8 @@ export function ScheduleDaySection({ group }: { group: ScheduleDay }) {
   const headingId = `day-${group.day.toLowerCase()}`;
   return (
     <section aria-labelledby={headingId} className="scroll-mt-32 md:scroll-mt-24" id={group.day.toLowerCase()}>
-      <div className="flex items-baseline justify-between gap-4 border-b-2 border-court-900 pb-2">
-        <h2 id={headingId} className="font-display soft text-3xl font-medium tracking-tight text-court-900">
+      <div className="flex items-baseline justify-between gap-4 border-b-2 border-slate-800 pb-2">
+        <h2 id={headingId} className="font-display soft text-3xl font-medium tracking-tight text-slate-800">
           {label}
         </h2>
         <p className="text-sm text-ink-muted">
@@ -58,7 +58,7 @@ export function ScheduleDaySection({ group }: { group: ScheduleDay }) {
             </th>
           </tr>
         </thead>
-        <tbody className="divide-y divide-sand-200">
+        <tbody className="divide-y divide-slate-500/20">
           {group.entries.map((entry) => (
             <tr key={entry.id} className="align-top">
               <td className="whitespace-nowrap py-3.5 pr-4 font-semibold tabular-nums">
@@ -77,10 +77,10 @@ export function ScheduleDaySection({ group }: { group: ScheduleDay }) {
         </tbody>
       </table>
 
-      <ul className="divide-y divide-sand-200 sm:hidden">
+      <ul className="divide-y divide-slate-500/20 sm:hidden">
         {group.entries.map((entry) => (
           <li key={entry.id} className="py-4">
-            <p className="flex items-center gap-2 text-sm font-semibold tabular-nums text-clay-700">
+            <p className="flex items-center gap-2 text-sm font-semibold tabular-nums text-slate-800">
               {formatTimeRange(entry.start, entry.end)}
               <span className="text-ink-muted">·</span>
               <span className="font-medium text-ink-muted">{entry.court}</span>

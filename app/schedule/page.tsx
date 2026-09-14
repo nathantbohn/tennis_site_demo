@@ -35,7 +35,7 @@ export default async function SchedulePage() {
               <li key={group.day}>
                 <a
                   href={`#${group.day.toLowerCase()}`}
-                  className="inline-flex min-h-11 items-center rounded-full bg-sand-100 px-4 text-sm font-medium ring-1 ring-inset ring-sand-300 hover:bg-sand-200"
+                  className="inline-flex min-h-11 items-center rounded-full bg-aqua-100 px-4 text-sm font-medium ring-1 ring-inset ring-slate-500/30 hover:bg-aqua-200"
                 >
                   <span className="sm:hidden">{group.day}</span>
                   <span className="hidden sm:inline">{DAY_LABELS[group.day]}</span>
@@ -56,10 +56,10 @@ export default async function SchedulePage() {
       </Container>
 
       <Container className="mt-16">
-        <div className="rounded-3xl bg-court-900 p-6 text-sand-50 sm:p-10 md:flex md:items-center md:justify-between md:gap-10">
+        <div className="on-dark rounded-3xl bg-slate-800 p-6 text-white sm:p-10 md:flex md:items-center md:justify-between md:gap-10">
           <div className="max-w-xl">
             <h2 className="font-display soft text-3xl font-medium tracking-tight">Want a court outside these times?</h2>
-            <p className="mt-3 leading-relaxed text-sand-200">
+            <p className="mt-3 leading-relaxed text-sage-100">
               Call or text {site.owner.firstName} with the day and time you have in mind and he will
               confirm by text. Drop-ins for clinics are welcome when there is room on the court.
             </p>

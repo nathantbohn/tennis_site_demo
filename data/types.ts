@@ -55,7 +55,7 @@ export type SocialLink = Reviewable & {
   url: string;
 };
 
-export type PlaceholderVariant = "clay" | "dusk" | "grass" | "clubhouse" | "ball" | "map";
+export type PlaceholderVariant = "court" | "dusk" | "grass" | "clubhouse" | "ball" | "map";
 
 /**
  * Phase 1 stands in for photography with gradient blocks. The `alt` text
@@ -106,9 +106,15 @@ export type SiteInfo = Reviewable & {
     credentials: string;
     bio: string[];
   };
-  facility: {
-    courtCount: number;
-    surface: string;
+  /**
+   * Court count and surface are unverified — earlier content here was
+   * pulled from search results for a different DeLand-area tennis venue,
+   * so both are optional until confirmed (see the `todo` field below).
+   * Don't render a specific count or surface anywhere without one.
+   */
+  facility: Reviewable & {
+    courtCount?: number;
+    surface?: string;
     lit: boolean;
     highlights: string[];
   };

@@ -1,7 +1,7 @@
 # DeLand Tennis Club — website
 
 Phase 1 demo of the new [delandtennis.com](https://www.delandtennis.com): a
-static, mobile-first Next.js site for a small clay-court club in DeLand, FL.
+static, mobile-first Next.js site for a small tennis club in DeLand, FL.
 No database, no auth. See `CLAUDE.md` for the phase plan and architecture rules.
 
 ## Run it locally
@@ -57,6 +57,21 @@ Conventions:
 
 Photos are stand-ins for now: the `Placeholder` component draws a solid or
 gradient block, and each block's `alt` text describes the shot to take later.
+
+## Brand
+
+- `public/logo.png` is the club's own logo (transparent background), used in
+  the header, footer and Open Graph image via `public/logo-og.png` — a
+  smaller copy kept alongside it purely so the Open Graph route doesn't
+  inline a full-resolution PNG. Both are generated from the same source;
+  regenerate `logo-og.png` (resize to ~300px, keep the transparency) if the
+  logo is ever replaced.
+- `app/icon.svg` is a tennis-ball favicon, separate from the logo.
+- Colors live in `app/globals.css` under `@theme`, derived from the club's
+  own site (sage/aqua backgrounds, dark blue-gray structure, a lime accent,
+  pale green/cream highlights, one dark red reserved for a single heading).
+  The palette table and every contrast check are in the PR that introduced
+  it — start there before adding a new color.
 
 ## Deploying to Vercel
 

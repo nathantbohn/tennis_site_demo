@@ -2,7 +2,7 @@ import type { PlaceholderImage } from "@/data/types";
 import { CourtLines } from "@/components/CourtLines";
 
 const variantClass: Record<PlaceholderImage["variant"], string> = {
-  clay: "ph-clay",
+  court: "ph-court",
   dusk: "ph-dusk",
   grass: "ph-grass",
   clubhouse: "ph-clubhouse",
@@ -11,7 +11,7 @@ const variantClass: Record<PlaceholderImage["variant"], string> = {
 };
 
 const linesOpacity: Record<PlaceholderImage["variant"], string> = {
-  clay: "opacity-80",
+  court: "opacity-80",
   dusk: "opacity-40",
   grass: "opacity-70",
   clubhouse: "opacity-0",
@@ -19,7 +19,7 @@ const linesOpacity: Record<PlaceholderImage["variant"], string> = {
   map: "opacity-0",
 };
 
-/** A clay pin over the map grid. Decorative. */
+/** A pin over the map grid. Decorative. */
 function MapPin() {
   return (
     <svg
@@ -27,8 +27,8 @@ function MapPin() {
       viewBox="0 0 48 60"
       className="absolute left-1/2 top-1/2 h-16 w-auto -translate-x-1/2 -translate-y-[85%] drop-shadow-md"
     >
-      <path d="M24 58S4 34 4 21a20 20 0 0 1 40 0c0 13-20 37-20 37Z" fill="#b4532a" />
-      <circle cx="24" cy="21" r="8" fill="#fbf7f0" />
+      <path d="M24 58S4 34 4 21a20 20 0 0 1 40 0c0 13-20 37-20 37Z" fill="#33454a" />
+      <circle cx="24" cy="21" r="8" fill="#cee3de" />
     </svg>
   );
 }
