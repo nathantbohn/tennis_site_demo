@@ -1,0 +1,133 @@
+[
+  {
+    "id": "mon-adult-clinic",
+    "day": "Mon",
+    "start": "08:00",
+    "end": "09:30",
+    "activity": "Adult clinic",
+    "court": "Court 1",
+    "kind": "clinic",
+    "notes": "Levels 3.0–3.5. Drop in, $25.",
+    "todo": "TODO(fred): every row in this file is a placeholder weekly rhythm written to show how the schedule page works. Replace with the real weekly schedule (the current site shows it as an image)."
+  },
+  {
+    "id": "mon-junior-after-school",
+    "day": "Mon",
+    "start": "16:00",
+    "end": "17:00",
+    "activity": "Junior after-school tennis",
+    "court": "Courts 3–4",
+    "kind": "junior",
+    "notes": "Ages 8–12. Loaner racquets available."
+  },
+  {
+    "id": "mon-mens-league",
+    "day": "Mon",
+    "start": "18:00",
+    "end": "20:00",
+    "activity": "Men's doubles league",
+    "court": "Courts 1–4",
+    "kind": "league",
+    "notes": "Under the lights. Fall season runs through November."
+  },
+  {
+    "id": "tue-cardio",
+    "day": "Tue",
+    "start": "08:00",
+    "end": "09:00",
+    "activity": "Cardio tennis",
+    "court": "Court 2",
+    "kind": "clinic",
+    "notes": "All levels. Music on, lots of running."
+  },
+  {
+    "id": "tue-beginner-clinic",
+    "day": "Tue",
+    "start": "17:30",
+    "end": "19:00",
+    "activity": "Beginner adult clinic",
+    "court": "Court 1",
+    "kind": "clinic",
+    "notes": "Never played? Start here. Racquets provided."
+  },
+  {
+    "id": "wed-ladies-clinic",
+    "day": "Wed",
+    "start": "08:00",
+    "end": "09:30",
+    "activity": "Women's clinic",
+    "court": "Courts 1–2",
+    "kind": "clinic",
+    "notes": "Levels 3.0 and up."
+  },
+  {
+    "id": "wed-junior-development",
+    "day": "Wed",
+    "start": "16:00",
+    "end": "17:30",
+    "activity": "Junior development",
+    "court": "Courts 3–4",
+    "kind": "junior",
+    "notes": "Ages 12–16. Match-play prep for school teams."
+  },
+  {
+    "id": "thu-drills",
+    "day": "Thu",
+    "start": "09:00",
+    "end": "10:30",
+    "activity": "Drills and match play",
+    "court": "Courts 1–2",
+    "kind": "clinic",
+    "notes": "Levels 3.5–4.0."
+  },
+  {
+    "id": "thu-mixed-social",
+    "day": "Thu",
+    "start": "18:00",
+    "end": "20:00",
+    "activity": "Mixed doubles social",
+    "court": "Courts 1–4",
+    "kind": "social",
+    "notes": "Bring a partner or we will pair you. Text to get on the list."
+  },
+  {
+    "id": "fri-adult-clinic",
+    "day": "Fri",
+    "start": "08:00",
+    "end": "09:30",
+    "activity": "Adult clinic",
+    "court": "Court 1",
+    "kind": "clinic",
+    "notes": "Levels 3.5–4.0. Drop in, $25."
+  },
+  {
+    "id": "sat-red-ball",
+    "day": "Sat",
+    "start": "09:00",
+    "end": "10:00",
+    "activity": "Red ball juniors",
+    "court": "Court 5",
+    "kind": "junior",
+    "notes": "Ages 5–8. Parents welcome courtside."
+  },
+  {
+    "id": "sat-round-robin",
+    "day": "Sat",
+    "start": "10:00",
+    "end": "12:00",
+    "activity": "Saturday round robin",
+    "court": "Courts 1–4",
+    "kind": "social",
+    "notes": "All levels. The best way to meet people to play with."
+  },
+  {
+    "id": "sun-open-play",
+    "day": "Sun",
+    "start": "15:00",
+    "end": "17:00",
+    "activity": "Open play",
+    "court": "Courts 1–3",
+    "kind": "open",
+    "notes": "Show up and get in a game. Court time rates apply."
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "post-2026-09-10",
+    "source": "instagram",
+    "publishedAt": "2026-09-10T22:15:00Z",
+    "body": "Courts freshly rolled and lined for the fall season. The lights come on at 7, and September evenings on clay are hard to beat. Come hit.",
+    "permalink": "https://www.instagram.com/fred.deland/",
+    "image": {
+      "variant": "dusk",
+      "alt": "Freshly lined clay court at dusk with the floodlights on"
+    },
+    "todo": "TODO(fred): sample post. In Phase 2 this section pulls your three most recent Instagram posts automatically."
+  },
+  {
+    "id": "post-2026-09-05",
+    "source": "instagram",
+    "publishedAt": "2026-09-05T18:40:00Z",
+    "body": "Saturday round robin was full again: 16 players, three hours, zero rain delays. Next one is Saturday at 10. Text 386-837-9123 to get on the list.",
+    "permalink": "https://www.instagram.com/fred.deland/",
+    "image": {
+      "variant": "grass",
+      "alt": "Sixteen players posing at the net after the Saturday round robin"
+    },
+    "todo": "TODO(fred): sample post."
+  },
+  {
+    "id": "post-2026-08-28",
+    "source": "instagram",
+    "publishedAt": "2026-08-28T20:05:00Z",
+    "body": "Junior after-school tennis starts Monday. Ages 8 to 12, Mondays and Wednesdays at 4. Racquets available to borrow, so just bring sneakers and water.",
+    "permalink": "https://www.instagram.com/fred.deland/",
+    "image": {
+      "variant": "ball",
+      "alt": "A basket of red and orange junior tennis balls on a clay court"
+    },
+    "todo": "TODO(fred): sample post."
+  }
+]

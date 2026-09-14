@@ -1,0 +1,63 @@
+import type { Post, SiteInfo } from "@/data/types";
+import { formatDateTime } from "@/lib/format";
+import { Container } from "@/components/Container";
+import { ExternalIcon } from "@/components/Icons";
+import { Placeholder } from "@/components/Placeholder";
+import { SectionHeading } from "@/components/SectionHeading";
+
+const aspects = ["aspect-[4/5]", "aspect-square", "aspect-[4/5]"];
+
+/**
+ * "Latest" from the club. Phase 1 renders sample posts from /data; Phase 2
+ * fills the same shape from Instagram. Horizontal snap scroll on phones,
+ * a staggered three-up on wider screens.
+ */
+export function LatestPosts({ posts, site }: { posts: Post[]; site: SiteInfo }) {
+  const instagram = site.social.find((s) => s.platform === "instagram");
+  return (
+    <section aria-labelledby="latest-heading" className="py-16 md:py-24">
+      <Container>
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <SectionHeading eyebrow="Latest" id="latest-heading" title="From the courts this month" />
+          {instagram ? (
+            <a
+              href={instagram.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-11 items-center gap-1.5 font-medium text-clay-700 underline decoration-clay-300 underline-offset-4 hover:decoration-clay-700"
+            >
+              Follow {instagram.handle}
+              <ExternalIcon />
+            </a>
+          ) : null}
+        </div>
+
+        <ul className="-mx-4 mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-3 sm:gap-6 sm:overflow-visible sm:px-0">
+          {posts.map((post, i) => (
+            <li key={post.id} className="w-[76%] shrink-0 snap-start sm:w-auto">
+              <article className={i === 1 ? "sm:pt-10" : ""}>
+                <Placeholder image={post.image} className={`${aspects[i % aspects.length]} rounded-2xl`} />
+                <p className="mt-4 text-xs font-semibold uppercase tracking-[0.16em] text-ink-muted">
+                  <time dateTime={post.publishedAt}>{formatDateTime(post.publishedAt)}</time>
+                  {post.source === "instagram" ? " · Instagram" : null}
+                </p>
+                <p className="mt-2 leading-relaxed">{post.body}</p>
+                {post.permalink ? (
+                  <a
+                    href={post.permalink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-2 inline-flex min-h-11 items-center gap-1 text-sm font-medium text-clay-700 underline decoration-clay-300 underline-offset-4 hover:decoration-clay-700"
+                  >
+                    View post
+                    <ExternalIcon className="h-3.5 w-3.5" />
+                  </a>
+                ) : null}
+              </article>
+            </li>
+          ))}
+        </ul>
+      </Container>
+    </section>
+  );
+}

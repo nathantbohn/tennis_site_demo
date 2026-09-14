@@ -1,0 +1,72 @@
+[
+  {
+    "id": "ace-pass",
+    "name": "ACE PASS",
+    "category": "pass",
+    "price": 75,
+    "unit": "5 visits",
+    "visits": 5,
+    "featured": true,
+    "description": "Five visits of court time for one flat price. Clinics and private lessons are an extra fee.",
+    "details": [
+      "Court time only",
+      "Use it any day the club is open",
+      "Share it with a regular partner"
+    ],
+    "todo": "TODO(fred): the current site shows the ACE PASS at both $60 and $75 on different pages. $75 is used here. Confirm the price, whether it expires, and whether it can be shared."
+  },
+  {
+    "id": "court-time",
+    "name": "Court time",
+    "category": "court",
+    "price": 15,
+    "unit": "per person, per visit",
+    "description": "Walk-in or reserved court time. Lights included.",
+    "todo": "TODO(fred): placeholder price. What does a visit or an hour of court time cost today?"
+  },
+  {
+    "id": "private-lesson",
+    "name": "Private lesson",
+    "category": "lesson",
+    "price": 75,
+    "unit": "per hour",
+    "description": "One-on-one with Fred. Court time and balls included.",
+    "todo": "TODO(fred): placeholder price."
+  },
+  {
+    "id": "semi-private-lesson",
+    "name": "Semi-private lesson",
+    "category": "lesson",
+    "price": 45,
+    "unit": "per person, per hour",
+    "description": "Two players, one pro. Bring a friend or a doubles partner.",
+    "todo": "TODO(fred): placeholder price."
+  },
+  {
+    "id": "adult-clinic",
+    "name": "Adult clinic",
+    "category": "clinic",
+    "price": 25,
+    "unit": "per person, 90 min",
+    "description": "Drop-in group clinic, grouped by level.",
+    "todo": "TODO(fred): placeholder price and length."
+  },
+  {
+    "id": "junior-clinic",
+    "name": "Junior after-school clinic",
+    "category": "program",
+    "price": 20,
+    "unit": "per session",
+    "description": "Ages 5 to 17, grouped by age and level. Racquets available to borrow.",
+    "todo": "TODO(fred): placeholder price."
+  },
+  {
+    "id": "junior-camp",
+    "name": "Junior camp",
+    "category": "program",
+    "price": 175,
+    "unit": "per week",
+    "description": "Summer and holiday camps, 9 AM to noon, Monday through Friday.",
+    "todo": "TODO(fred): placeholder price and hours."
+  }
+]

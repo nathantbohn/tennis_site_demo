@@ -1,0 +1,112 @@
+[
+  {
+    "id": "private-lessons",
+    "name": "Private lessons",
+    "tagline": "One-on-one with a USPTA pro, on clay.",
+    "audience": "All ages and ability levels, from a first swing to match strategy.",
+    "description": [
+      "Every lesson is built around you: your goals, your game, your schedule. Fred has taught for more than 35 years and works with beginners, returning players, juniors and competitive adults.",
+      "Lessons run on the club's clay courts, which are easier on knees and reward patient, well-built points."
+    ],
+    "includes": [
+      "60-minute private or semi-private lesson",
+      "Court time and balls included",
+      "A short plan for what to work on before next time"
+    ],
+    "pricingIds": ["private-lesson", "semi-private-lesson"],
+    "cta": { "label": "Text Fred to book a lesson", "action": "text" },
+    "image": {
+      "variant": "clay",
+      "alt": "Fred rallying with a student on a clay court, mid-morning light"
+    },
+    "todo": "TODO(fred): the real site says 'private and group lessons for all ages and ability levels'. The lesson length, what's included and the wording of everything else here is placeholder. Confirm."
+  },
+  {
+    "id": "clinics",
+    "name": "Clinics and group lessons",
+    "tagline": "Small groups, sorted by level, lots of hitting.",
+    "audience": "Adults 2.5 through 4.5, with a beginner clinic every week.",
+    "description": [
+      "Clinics are the easiest way into the club. Drop in, get grouped with players at your level and spend 90 minutes drilling, playing points and meeting people to play with later.",
+      "See the weekly schedule for days and times. No membership required."
+    ],
+    "includes": [
+      "90-minute clinics, capped at 6 players per court",
+      "Live-ball drills and point play, not just feeding",
+      "Loaner racquets if you are just getting started"
+    ],
+    "pricingIds": ["adult-clinic"],
+    "cta": { "label": "See this week's clinics", "action": "/schedule" },
+    "image": {
+      "variant": "grass",
+      "alt": "Four adults at the net during a doubles drill, coach feeding balls"
+    },
+    "todo": "TODO(fred): clinic length, cap per court, levels and 'no membership required' are placeholders. Confirm."
+  },
+  {
+    "id": "court-time",
+    "name": "Court time",
+    "tagline": "Six lit clay courts, open 7 to 7.",
+    "audience": "Anyone who wants to play. Bring a partner or ask Fred to find you one.",
+    "description": [
+      "Reserve a court by phone or text and just show up. Courts are rolled and lined daily, and the lights make evening play the best time of day in a Florida summer.",
+      "Play often? The ACE PASS covers five visits for one flat price."
+    ],
+    "includes": [
+      "Hourly court reservations by phone or text",
+      "Lights on for evening play",
+      "ACE PASS: 5 visits for one price"
+    ],
+    "pricingIds": ["ace-pass", "court-time"],
+    "cta": { "label": "Call to reserve a court", "action": "call" },
+    "image": {
+      "variant": "dusk",
+      "alt": "Courts at dusk with the lights just switched on"
+    },
+    "todo": "TODO(fred): 'courts rolled and lined daily' and hourly reservation details are placeholders. Confirm how court time is actually booked today."
+  },
+  {
+    "id": "juniors",
+    "name": "Junior camps and after-school tennis",
+    "tagline": "Red ball to high-school varsity.",
+    "audience": "Ages 5 to 17, grouped by age and level.",
+    "description": [
+      "Kids learn fast when it is fun. After-school sessions use the right ball and court size for each age, and summer and holiday camps fill the day with games, drills and match play.",
+      "Racquets are available to borrow, so there is nothing to buy before the first session."
+    ],
+    "includes": [
+      "After-school clinics during the school year",
+      "Week-long summer and holiday camps",
+      "Match-play prep for middle and high school players"
+    ],
+    "pricingIds": ["junior-clinic", "junior-camp"],
+    "cta": { "label": "Text Fred about junior programs", "action": "text" },
+    "image": {
+      "variant": "ball",
+      "alt": "A group of kids lined up at the baseline with red and orange balls"
+    },
+    "todo": "TODO(fred): the real site mentions junior camps. Age ranges, after-school sessions and camp details are placeholders. Confirm."
+  },
+  {
+    "id": "leagues-events",
+    "name": "Leagues, socials and tournaments",
+    "tagline": "Something on the calendar every week.",
+    "audience": "Social players and competitors alike.",
+    "description": [
+      "The club runs events for both social and competitive members: weeknight leagues, Saturday round robins, mixed doubles socials and a few tournaments a year that are open to everyone.",
+      "New in town or back after a long break? A round robin is the fastest way to find your regular group."
+    ],
+    "includes": [
+      "Weeknight men's, women's and mixed leagues",
+      "Saturday round robins, all levels welcome",
+      "Club tournaments with divisions from 2.5 up"
+    ],
+    "pricingIds": [],
+    "cta": { "label": "See upcoming tournaments", "action": "/tournaments" },
+    "image": {
+      "variant": "clubhouse",
+      "alt": "Players gathered on the clubhouse porch after a Saturday round robin"
+    },
+    "todo": "TODO(fred): the real site says the club offers events for social and competitive members, plus leagues. Which leagues actually run, and on which nights? Placeholder until confirmed."
+  }
+]

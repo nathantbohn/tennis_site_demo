@@ -1,0 +1,58 @@
+[
+  {
+    "id": "fall-clay-classic-2026",
+    "name": "Fall Clay Classic",
+    "startDate": "2026-10-17",
+    "endDate": "2026-10-18",
+    "registrationCloses": "2026-10-12",
+    "format": "Round-robin pools into a single-elimination draw. Best of three sets, 10-point match tiebreak in place of a third set.",
+    "divisions": [
+      "Men's singles 3.5",
+      "Men's singles 4.0+",
+      "Women's singles 3.5",
+      "Women's singles 4.0+",
+      "Men's doubles 3.5",
+      "Men's doubles 4.0+",
+      "Women's doubles 3.5",
+      "Women's doubles 4.0+",
+      "Mixed doubles 7.0",
+      "Mixed doubles 8.0"
+    ],
+    "entryFee": 35,
+    "entryFeeNote": "Per player, per event. Play a second event for $15.",
+    "description": "Our biggest weekend of the year. Two days of clay-court tennis for every level, lunch on the clubhouse porch, and trophies for winners and finalists.",
+    "status": "open",
+    "todo": "TODO(fred): placeholder tournament. The current site says the club welcomes players from beginners to advanced levels. What tournaments are actually planned, and what are the dates, divisions and fees?"
+  },
+  {
+    "id": "holiday-mixed-2026",
+    "name": "Holiday Mixed Doubles Social",
+    "startDate": "2026-12-05",
+    "registrationCloses": "2026-12-01",
+    "format": "One-day round robin. Short sets, rotating partners, prizes for the top pair.",
+    "divisions": ["Mixed doubles 6.0–7.0", "Mixed doubles 8.0+"],
+    "entryFee": 25,
+    "entryFeeNote": "Per player. Includes lunch.",
+    "description": "A low-pressure Saturday of mixed doubles to close out the year. Sign up solo and we will pair you.",
+    "status": "open",
+    "todo": "TODO(fred): placeholder event."
+  },
+  {
+    "id": "new-year-doubles-2027",
+    "name": "New Year Doubles Shootout",
+    "startDate": "2027-01-09",
+    "registrationCloses": "2027-01-05",
+    "format": "Compass draw, so every team plays at least three matches.",
+    "divisions": [
+      "Men's doubles 3.5",
+      "Men's doubles 4.0+",
+      "Women's doubles 3.5",
+      "Women's doubles 4.0+"
+    ],
+    "entryFee": 30,
+    "entryFeeNote": "Per player.",
+    "description": "Start the year with a full day of doubles under the January sun.",
+    "status": "open",
+    "todo": "TODO(fred): placeholder event."
+  }
+]

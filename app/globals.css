@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+/*
+  Palette: clay-court terracotta, grass-court green, warm sand neutrals.
+  Every text/background pair used on the site was checked against WCAG AA.
+*/
+@theme {
+  /* Larger phones get a little more breathing room in the nav. */
+  --breakpoint-xs: 26rem;
+
+  --color-sand-50: #fbf7f0;
+  --color-sand-100: #f4ede1;
+  --color-sand-200: #e8dcc8;
+  --color-sand-300: #d9c9ae;
+
+  --color-clay-100: #f6e3d7;
+  --color-clay-200: #f1cdb8;
+  --color-clay-300: #e7b79a;
+  --color-clay-500: #c9673e;
+  --color-clay-600: #b4532a;
+  --color-clay-700: #9a4520;
+  --color-clay-800: #7e3719;
+
+  --color-court-100: #e3eee3;
+  --color-court-200: #c5dac7;
+  --color-court-500: #3f7f4f;
+  --color-court-600: #2f6b3f;
+  --color-court-700: #27563a;
+  --color-court-800: #1f3d2b;
+  --color-court-900: #15291d;
+
+  --color-ink: #1c1a17;
+  --color-ink-muted: #5c574f;
+  --color-ball: #e2ea5c;
+
+  --shadow-lift: 0 1px 2px rgb(28 26 23 / 0.06), 0 12px 32px -12px rgb(28 26 23 / 0.18);
+}
+
+@theme inline {
+  --font-display: var(--font-fraunces), "Iowan Old Style", Georgia, serif;
+  --font-sans: var(--font-dm-sans), system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+    /* Keep anchored sections clear of the sticky header. */
+    scroll-padding-top: 7.5rem;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+  @media (min-width: 48rem) {
+    html {
+      scroll-padding-top: 5.5rem;
+    }
+  }
+  body {
+    @apply bg-sand-50 font-sans text-ink antialiased;
+    font-optical-sizing: auto;
+    text-rendering: optimizeLegibility;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-clay-600);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  ::selection {
+    background: var(--color-clay-200);
+  }
+  strong {
+    @apply font-semibold;
+  }
+}
+
+/* Fraunces' SOFT axis rounds the terminals: warmer, less formal. */
+@utility soft {
+  font-variation-settings: "SOFT" 60;
+}
+
+/* Dotted leaders for the price list, menu-style. */
+@utility leader {
+  background-image: radial-gradient(circle, currentColor 1px, transparent 1.5px);
+  background-size: 8px 2px;
+  background-repeat: repeat-x;
+  background-position: 0 100%;
+}
+
+/*
+  Placeholder "photography". Solid and gradient blocks stand in for photos
+  until the shoot; the alt text on each block is the shot list.
+*/
+@utility ph-clay {
+  background:
+    radial-gradient(120% 90% at 15% 10%, rgb(255 255 255 / 0.18) 0%, transparent 55%),
+    linear-gradient(160deg, #c9673e 0%, #b4532a 50%, #8f3f1e 100%);
+}
+@utility ph-dusk {
+  background:
+    radial-gradient(60% 40% at 50% 0%, rgb(226 234 92 / 0.35) 0%, transparent 60%),
+    linear-gradient(180deg, #15291d 0%, #2f4a3a 42%, #7e3719 78%, #9a4520 100%);
+}
+@utility ph-grass {
+  background:
+    radial-gradient(120% 90% at 85% 10%, rgb(255 255 255 / 0.14) 0%, transparent 55%),
+    linear-gradient(160deg, #3f7f4f 0%, #2f6b3f 50%, #1f3d2b 100%);
+}
+@utility ph-clubhouse {
+  background:
+    linear-gradient(180deg, rgb(28 26 23 / 0) 0%, rgb(28 26 23 / 0.12) 100%),
+    repeating-linear-gradient(180deg, #f4ede1 0 18px, #e8dcc8 18px 21px);
+}
+@utility ph-map {
+  background:
+    linear-gradient(90deg, rgb(28 26 23 / 0.09) 1.5px, transparent 1.5px) 0 0 / 56px 56px,
+    linear-gradient(0deg, rgb(28 26 23 / 0.09) 1.5px, transparent 1.5px) 0 0 / 56px 56px,
+    linear-gradient(rgb(28 26 23 / 0.16), rgb(28 26 23 / 0.16)) 30% 0 / 5px 100% no-repeat,
+    linear-gradient(rgb(28 26 23 / 0.16), rgb(28 26 23 / 0.16)) 0 62% / 100% 5px no-repeat,
+    #f4ede1;
+}
+@utility ph-ball {
+  background:
+    radial-gradient(circle at 62% 58%, #e2ea5c 0 27%, #b9c13c 27% 28%, transparent 29%),
+    linear-gradient(160deg, #b4532a 0%, #9a4520 60%, #7e3719 100%);
+}
