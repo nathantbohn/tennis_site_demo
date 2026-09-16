@@ -78,6 +78,46 @@ export function ExternalIcon({ className = "h-4 w-4" }: IconProps) {
   );
 }
 
+export function PlusIcon({ className = "h-4 w-4" }: IconProps) {
+  return (
+    <svg {...common} className={className}>
+      <path d="M12 5v14M5 12h14" />
+    </svg>
+  );
+}
+
+export function PencilIcon({ className = "h-4 w-4" }: IconProps) {
+  return (
+    <svg {...common} className={className}>
+      <path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z" />
+    </svg>
+  );
+}
+
+export function TrashIcon({ className = "h-4 w-4" }: IconProps) {
+  return (
+    <svg {...common} className={className}>
+      <path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 11v6M14 11v6" />
+    </svg>
+  );
+}
+
+export function CloseIcon({ className = "h-4 w-4" }: IconProps) {
+  return (
+    <svg {...common} className={className}>
+      <path d="M6 6l12 12M18 6 6 18" />
+    </svg>
+  );
+}
+
+export function ChevronLeftIcon({ className = "h-4 w-4" }: IconProps) {
+  return (
+    <svg {...common} className={className}>
+      <path d="M15 19 8 12l7-7" />
+    </svg>
+  );
+}
+
 /**
  * A tennis ball, drawn to match the favicon (app/icon.svg). Used for the
  * ACE PASS visit dots — the club's logo (public/logo.png) carries the
