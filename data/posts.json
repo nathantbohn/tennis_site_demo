@@ -14,7 +14,7 @@
     "id": "post-2026-11-06",
     "source": "club",
     "publishedAt": "2026-11-06T15:00:00Z",
-    "body": "Saturday round robin this weekend, all levels welcome. Starts at 10. Text 386-837-9123 to get on the list.",
+    "body": "Saturday round robin, all levels welcome. Starts at 10. Text 386-837-9123 to get on the list.",
     "image": {
       "variant": "grass",
       "alt": "Players posing at the net after the Saturday round robin"
@@ -25,11 +25,11 @@
     "id": "post-2026-11-03",
     "source": "club",
     "publishedAt": "2026-11-03T15:00:00Z",
-    "body": "Junior after-school tennis starts Monday. Ages 8 to 12, Mondays and Wednesdays at 4. Racquets available to borrow, so just bring sneakers and water.",
+    "body": "Junior after-school tennis for ages 8 to 12, Mondays at 4. Racquets available to borrow, so just bring sneakers and water.",
     "image": {
       "variant": "ball",
       "alt": "A basket of red and orange junior tennis balls on the court"
     },
-    "todo": "TODO(fred): sample post."
+    "todo": "TODO(fred): sample post. 'Mondays at 4' and ages 8 to 12 match the Monday juniors session in schedule.json; keep the two in step."
   }
 ]
