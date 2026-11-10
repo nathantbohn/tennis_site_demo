@@ -30,7 +30,7 @@ npm run lint       # eslint, zero warnings allowed
 | `components/`   | UI. Server components by default; only `NavLinks` and `TournamentForm` are client components |
 | `data/`         | **All editable content**, as JSON, typed by `data/types.ts`              |
 | `lib/content.ts`| The only place that reads `/data`. Pages call `getSite()`, `getSchedule()` and friends |
-| `lib/notify.ts` | `notify(to, message, channel)`: the single exit for outbound messages. Logs in Phase 1 |
+| `lib/notify.ts` | `notify(to, message, channel)`: the single exit for outbound messages. A silent stub in Phase 1 |
 | `lib/phone.ts`  | E.164 normalization and display formatting for phone numbers             |
 | `lib/format.ts` | Dates, times and prices. Timestamps are UTC in data, rendered in America/New_York |
 

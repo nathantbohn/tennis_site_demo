@@ -1,13 +1,13 @@
 "use client";
 
-import { useId, useState, type ChangeEvent, type FormEvent, type ReactNode } from "react";
+import { useEffect, useId, useRef, useState, type ChangeEvent, type FormEvent, type ReactNode } from "react";
 import Link from "next/link";
 import type { Tournament } from "@/data/types";
 import { submitTournamentApplication, type ApplicationReceipt } from "@/lib/applications";
-import { formatDateRange } from "@/lib/format";
+import { formatDateRange, formatMonthDay } from "@/lib/format";
 import { formatPhone, normalizeToE164 } from "@/lib/phone";
 import { buttonClass } from "@/components/ButtonLink";
-import { CheckIcon } from "@/components/Icons";
+import { AlertIcon, CheckIcon } from "@/components/Icons";
 
 type Values = {
   fullName: string;
@@ -43,7 +43,7 @@ function validate(values: Values, tournament: Tournament | undefined): Errors {
 }
 
 const inputClass =
-  "block w-full min-h-12 rounded-xl border border-slate-500/30 bg-white px-4 text-base text-ink placeholder:text-ink-muted/70 focus:border-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-800/25 aria-[invalid=true]:border-slate-800 aria-[invalid=true]:ring-2 aria-[invalid=true]:ring-slate-800/25";
+  "block w-full min-h-12 rounded-xl border border-slate-500/30 bg-white px-4 text-base text-ink placeholder:text-ink-muted/70 focus:border-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-800/25 aria-[invalid=true]:border-2 aria-[invalid=true]:border-red-700";
 
 function Field({
   id,
@@ -93,8 +93,9 @@ function Field({
         })}
       </div>
       {error ? (
-        <p id={errorId} className="mt-1.5 text-sm font-medium text-slate-800">
-          {error}
+        <p id={errorId} className="mt-1.5 flex items-start gap-1.5 text-sm font-medium text-red-700">
+          <AlertIcon className="mt-0.5 h-4 w-4 shrink-0" />
+          <span>{error}</span>
         </p>
       ) : null}
     </div>
@@ -120,10 +121,24 @@ export function TournamentForm({ tournaments, owner }: { tournaments: Tournament
   const [errors, setErrors] = useState<Errors>({});
   const [status, setStatus] = useState<"idle" | "submitting" | "done">("idle");
   const [receipt, setReceipt] = useState<ApplicationReceipt | null>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
+  const headingRef = useRef<HTMLHeadingElement>(null);
 
   const tournament = tournaments.find((t) => t.id === values.tournamentId);
   const isDoubles = /doubles/i.test(values.division);
   const errorCount = Object.keys(errors).length;
+
+  // The form is long and the button is at the bottom, so on a phone the swap to
+  // the success panel would leave the visitor looking at the footer. Bring the
+  // panel up instead: scrollIntoView stops below the sticky header because it
+  // honours the page's scroll-padding-top, and it follows the CSS
+  // scroll-behavior, so visitors who prefer reduced motion get a jump, not a
+  // glide. Focus then moves to the heading without a second scroll.
+  useEffect(() => {
+    if (status !== "done") return;
+    panelRef.current?.scrollIntoView({ block: "start" });
+    headingRef.current?.focus({ preventScroll: true });
+  }, [status]);
 
   function update(field: keyof Values) {
     return (e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -163,6 +178,14 @@ export function TournamentForm({ tournaments, owner }: { tournaments: Tournament
     setStatus("done");
   }
 
+  /** A valid number becomes (386) 555-0100 on blur. Anything else stays as typed, so the error can point at it. */
+  function tidyPhone() {
+    setValues((v) => {
+      const e164 = normalizeToE164(v.phone);
+      return e164 ? { ...v, phone: formatPhone(e164) } : v;
+    });
+  }
+
   function reset() {
     setValues((v) => ({ ...v, fullName: "", phone: "", email: "", division: "", partnerName: "", notes: "" }));
     setErrors({});
@@ -185,26 +208,24 @@ export function TournamentForm({ tournaments, owner }: { tournaments: Tournament
   if (status === "done" && receipt && tournament) {
     const app = receipt.application;
     return (
-      <div role="status" className="rounded-3xl bg-lime-100 p-6 sm:p-10">
+      <div ref={panelRef} role="status" className="rounded-3xl bg-lime-100 p-6 sm:p-10">
         <span className="flex h-12 w-12 items-center justify-center rounded-full bg-lime-500 text-ink">
           <CheckIcon className="h-6 w-6" />
         </span>
-        <h3 className="font-display soft mt-5 text-3xl font-medium tracking-tight text-slate-800">
-          You are in the draw, {app.fullName.split(" ")[0]}.
+        <h3
+          ref={headingRef}
+          tabIndex={-1}
+          className="font-display soft mt-5 text-3xl font-medium tracking-tight text-slate-800"
+        >
+          Got it, {app.fullName.split(" ")[0]}.
         </h3>
         <p className="mt-3 leading-relaxed">
-          We have your application for <strong>{tournament.name}</strong> ({app.division}).{" "}
-          {owner.firstName} will text you at <strong>{formatPhone(app.phone)}</strong> to confirm your
-          spot and take payment.
+          {`${owner.firstName} will text ${formatPhone(app.phone)} to confirm your spot in ${tournament.name} (${app.division}).`}
         </p>
         <dl className="mt-6 grid gap-x-8 gap-y-2 text-sm sm:grid-cols-2">
           <div>
             <dt className="text-ink-muted">Dates</dt>
             <dd className="font-medium">{formatDateRange(tournament.startDate, tournament.endDate)}</dd>
-          </div>
-          <div>
-            <dt className="text-ink-muted">Reference</dt>
-            <dd className="font-medium tabular-nums">{receipt.id}</dd>
           </div>
           {app.partnerName ? (
             <div>
@@ -240,9 +261,10 @@ export function TournamentForm({ tournaments, owner }: { tournaments: Tournament
       {errorCount > 0 ? (
         <p
           role="alert"
-          className="rounded-xl bg-sage-100 px-4 py-3 text-sm font-medium text-slate-800 ring-1 ring-inset ring-slate-500/30"
+          className="flex items-start gap-2.5 rounded-r-xl border-l-4 border-red-700 bg-white px-4 py-3 text-sm font-medium text-red-700"
         >
-          Please fix the {errorCount === 1 ? "highlighted field" : `${errorCount} highlighted fields`} below.
+          <AlertIcon className="mt-0.5 h-4 w-4 shrink-0" />
+          <span>Please fix the {errorCount === 1 ? "highlighted field" : `${errorCount} highlighted fields`} below.</span>
         </p>
       ) : null}
 
@@ -277,6 +299,7 @@ export function TournamentForm({ tournaments, owner }: { tournaments: Tournament
             className={inputClass}
             value={values.phone}
             onChange={update("phone")}
+            onBlur={tidyPhone}
           />
         )}
       </Field>
@@ -308,7 +331,7 @@ export function TournamentForm({ tournaments, owner }: { tournaments: Tournament
             >
               {tournaments.map((t) => (
                 <option key={t.id} value={t.id}>
-                  {t.name} · {formatDateRange(t.startDate, t.endDate)}
+                  {`${t.name} · ${formatMonthDay(t.startDate)}`}
                 </option>
               ))}
             </select>

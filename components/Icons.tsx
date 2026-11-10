@@ -70,6 +70,16 @@ export function CheckIcon({ className = "h-4 w-4" }: IconProps) {
   );
 }
 
+/** Circled exclamation mark. Sits beside error text; never the only cue. */
+export function AlertIcon({ className = "h-4 w-4" }: IconProps) {
+  return (
+    <svg {...common} className={className}>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 7.5v5.5M12 16.5h.01" />
+    </svg>
+  );
+}
+
 export function ExternalIcon({ className = "h-4 w-4" }: IconProps) {
   return (
     <svg {...common} className={className}>

@@ -1,8 +1,10 @@
 /**
  * Tournament application handling.
  *
- * Phase 1: runs in the browser, logs the application and the messages that
- * would be sent, and returns a receipt so the form can show its success state.
+ * Phase 1: runs in the browser, builds the messages that would be sent (the
+ * notify stub drops them) and returns a receipt so the form can show its
+ * success state. Nothing is logged: this module is in the client bundle and
+ * the application holds the applicant's name, phone, email and notes.
  * Phase 2: becomes a Server Action that emails the owner and stores the
  * submission. The input and receipt shapes stay the same.
  */
@@ -33,8 +35,6 @@ export async function submitTournamentApplication(
     submittedAt: new Date().toISOString(),
   };
   const id = `app_${application.submittedAt.replace(/\D/g, "").slice(0, 14)}`;
-
-  console.info("[applications] new tournament application", { id, ...application });
 
   const summary = [
     `New application for ${tournament.name}`,

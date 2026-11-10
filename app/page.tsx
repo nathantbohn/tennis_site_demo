@@ -171,9 +171,10 @@ export default async function HomePage() {
 
       <LatestPosts posts={posts} site={site} />
 
-      {/* Meet Fred / plan your visit. The one place the club's dark red
-          appears on the site — a single mission-style heading introducing
-          the person behind the club, not spread across every section. */}
+      {/* Meet Fred / plan your visit. The one heading in the club's dark red
+          (the tournament form's error text is the only other red) — a single
+          mission-style heading introducing the person behind the club, not
+          spread across every section. */}
       <section aria-labelledby="visit-heading" className="bg-lime-100 py-16 md:py-24">
         <Container className="grid gap-10 md:grid-cols-12 md:items-center">
           <div className="mx-auto w-56 md:col-span-4 md:w-full md:max-w-xs">

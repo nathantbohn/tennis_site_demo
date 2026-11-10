@@ -83,6 +83,15 @@ export function formatCalendarDate(ymd: string): string {
   return longDate.format(calendarDate(ymd));
 }
 
+/** "2026-12-05" → "Dec 5". No year, for tight spots that only list upcoming dates. */
+export function formatMonthDay(ymd: string): string {
+  return new Intl.DateTimeFormat("en-US", {
+    timeZone: CLUB_TIME_ZONE,
+    month: "short",
+    day: "numeric",
+  }).format(calendarDate(ymd));
+}
+
 /** "2026-10-17","2026-10-18" → "Oct 17–18, 2026"; cross-month ranges spell both. */
 export function formatDateRange(start: string, end?: string): string {
   const s = calendarDate(start);
