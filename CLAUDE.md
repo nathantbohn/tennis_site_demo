@@ -54,6 +54,11 @@ Build only the current phase. Design so the next phases are additions, not rewri
 - `npm run build` must pass before opening a PR
 - Placeholder photos are fine — a real photo shoot comes later. Do not use
   the current site's snapshot photo grid.
+- Type: the audience is older adults reading phones outdoors. No rendered
+  text under 14px; informational text (price units, dates, schedule times and
+  notes, form hints, the footer) is 16px or more; header nav links are 15px at
+  375px. Fraunces (`font-display`) only on h1, section h2 and price figures;
+  everything else is DM Sans. `npm run build && npm run check:type` checks it.
 
 ## Out of scope entirely
 Website→social publishing, multi-tenancy, a CMS.

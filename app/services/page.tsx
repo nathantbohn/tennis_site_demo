@@ -54,15 +54,15 @@ export default async function ServicesPage() {
                   />
                 </div>
                 <div className={`md:col-span-7 ${flip ? "md:order-1" : ""}`}>
-                  <p className="font-display text-lg text-slate-800">{String(i + 1).padStart(2, "0")}</p>
+                  <p className="text-lg font-semibold text-slate-800">{String(i + 1).padStart(2, "0")}</p>
                   <h2
                     id={`${service.id}-title`}
                     className="font-display soft mt-1 text-3xl font-medium leading-tight tracking-tight text-slate-800 sm:text-4xl"
                   >
                     {service.name}
                   </h2>
-                  <p className="font-display mt-2 text-xl italic text-slate-800">{service.tagline}</p>
-                  <p className="mt-4 text-sm font-medium text-ink-muted">
+                  <p className="mt-2 text-xl font-semibold text-slate-800">{service.tagline}</p>
+                  <p className="mt-4 text-base font-medium text-ink-muted">
                     <span className="font-semibold text-ink">For:</span> {service.audience}
                   </p>
                   <div className="mt-4 space-y-3 leading-relaxed">
@@ -72,7 +72,7 @@ export default async function ServicesPage() {
                   </div>
                   <ul className="mt-5 space-y-2">
                     {service.includes.map((line) => (
-                      <li key={line} className="flex items-start gap-2.5 text-[0.9375rem]">
+                      <li key={line} className="flex items-start gap-2.5 text-base">
                         <CheckIcon className="mt-1 h-4 w-4 shrink-0 text-slate-500" />
                         {line}
                       </li>
@@ -83,7 +83,7 @@ export default async function ServicesPage() {
                       {pricing.map((item) => (
                         <li
                           key={item.id}
-                          className="rounded-full bg-aqua-100 px-3 py-1.5 text-sm ring-1 ring-inset ring-slate-500/30"
+                          className="rounded-full bg-aqua-100 px-3 py-1.5 text-base ring-1 ring-inset ring-slate-500/30"
                         >
                           <span className="font-medium">{item.name}</span>{" "}
                           <span className="font-display text-base font-medium text-slate-800">

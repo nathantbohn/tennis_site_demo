@@ -37,7 +37,7 @@ export default async function SchedulePage() {
               <li key={group.day}>
                 <a
                   href={`#${group.day.toLowerCase()}`}
-                  className="inline-flex min-h-11 items-center rounded-full bg-aqua-100 px-4 text-sm font-medium ring-1 ring-inset ring-slate-500/30 hover:bg-aqua-200"
+                  className="inline-flex min-h-11 items-center rounded-full bg-aqua-100 px-4 text-base font-medium ring-1 ring-inset ring-slate-500/30 hover:bg-aqua-200"
                 >
                   <span className="sm:hidden">{group.day}</span>
                   <span className="hidden sm:inline">{DAY_LABELS[group.day]}</span>

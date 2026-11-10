@@ -34,18 +34,18 @@ export function ScheduleDaySection({ group }: { group: ScheduleDay }) {
   return (
     <section aria-labelledby={headingId} className="scroll-mt-32 md:scroll-mt-24" id={group.day.toLowerCase()}>
       <div className="flex items-baseline justify-between gap-4 border-b-2 border-slate-800 pb-2">
-        <h2 id={headingId} className="font-display soft text-3xl font-medium tracking-tight text-slate-800">
+        <h2 id={headingId} className="text-3xl font-semibold tracking-tight text-slate-800">
           {label}
         </h2>
-        <p className="text-sm text-ink-muted">
+        <p className="text-base text-ink-muted">
           {group.entries.length} {group.entries.length === 1 ? "session" : "sessions"}
         </p>
       </div>
 
-      <table className="hidden w-full text-left text-[0.9375rem] sm:table">
+      <table className="hidden w-full text-left text-base sm:table">
         <caption className="sr-only">{label} schedule</caption>
         <thead>
-          <tr className="text-xs font-semibold uppercase tracking-[0.16em] text-ink-muted">
+          <tr className="text-sm font-semibold uppercase tracking-[0.16em] text-ink-muted">
             <th scope="col" className="w-36 py-3 pr-4 font-semibold">
               Time
             </th>
@@ -84,7 +84,7 @@ export function ScheduleDaySection({ group }: { group: ScheduleDay }) {
       <ul className="divide-y divide-slate-500/20 sm:hidden">
         {group.entries.map((entry) => (
           <li key={entry.id} className="py-4">
-            <p className="flex items-center gap-2 text-sm font-semibold tabular-nums text-slate-800">
+            <p className="flex items-center gap-2 text-base font-semibold tabular-nums text-slate-800">
               {formatTimeRange(entry.start, entry.end)}
               {entry.court ? (
                 <>
@@ -97,7 +97,7 @@ export function ScheduleDaySection({ group }: { group: ScheduleDay }) {
               <KindDot kind={entry.kind} />
               {entry.activity}
             </p>
-            {entry.notes ? <p className="mt-1 text-[0.9375rem] text-ink-muted">{entry.notes}</p> : null}
+            {entry.notes ? <p className="mt-1 text-base text-ink-muted">{entry.notes}</p> : null}
           </li>
         ))}
       </ul>
@@ -107,7 +107,7 @@ export function ScheduleDaySection({ group }: { group: ScheduleDay }) {
 
 export function ScheduleLegend() {
   return (
-    <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-ink-muted" aria-label="Legend">
+    <ul className="flex flex-wrap gap-x-5 gap-y-2 text-base text-ink-muted" aria-label="Legend">
       {(Object.keys(KIND_META) as ScheduleKind[]).map((kind) => (
         <li key={kind} className="flex items-center gap-2">
           <span aria-hidden="true" className={`inline-block h-2.5 w-2.5 rounded-full ${KIND_META[kind].dot}`} />

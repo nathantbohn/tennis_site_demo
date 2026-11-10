@@ -14,13 +14,10 @@ export function AcePass({ item, site }: { item: PriceItem; site: SiteInfo }) {
     >
       <div className="flex items-start justify-between gap-4">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-800">
+          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-800">
             {site.shortName} · {item.unit}
           </p>
-          <h3
-            id="ace-pass-title"
-            className="font-display soft mt-1 text-4xl font-semibold tracking-tight text-slate-800"
-          >
+          <h3 id="ace-pass-title" className="mt-1 text-4xl font-semibold tracking-tight text-slate-800">
             {item.name}
           </h3>
         </div>
@@ -28,7 +25,7 @@ export function AcePass({ item, site }: { item: PriceItem; site: SiteInfo }) {
           <span className="font-display block text-4xl font-medium leading-none text-ink">
             {formatPrice(item.price)}
           </span>
-          <span className="mt-1 block text-xs text-ink/70">{item.unit}</span>
+          <span className="mt-1 block text-base font-medium text-ink">{item.unit}</span>
         </p>
       </div>
 
@@ -42,7 +39,7 @@ export function AcePass({ item, site }: { item: PriceItem; site: SiteInfo }) {
 
       <p className="mt-6 leading-relaxed">{item.description}</p>
       {item.details ? (
-        <ul className="mt-4 space-y-1.5 text-[0.9375rem] text-ink-muted">
+        <ul className="mt-4 space-y-1.5 text-base text-ink-muted">
           {item.details.map((d) => (
             <li key={d} className="flex items-center gap-2">
               <CheckIcon className="h-4 w-4 text-slate-500" />

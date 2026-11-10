@@ -76,9 +76,9 @@ function RowForm({
 
   return (
     <form onSubmit={handleSubmit} className={`${adminFormCardClass} space-y-3`} aria-label={title}>
-      <p className="text-sm font-semibold text-slate-800">{title}</p>
+      <p className="text-base font-semibold text-slate-800">{title}</p>
       {error ? (
-        <p role="alert" className="rounded-lg bg-white px-3 py-2 text-sm font-medium text-slate-800 ring-1 ring-inset ring-slate-500/30">
+        <p role="alert" className="rounded-lg bg-white px-3 py-2 text-base font-medium text-slate-800 ring-1 ring-inset ring-slate-500/30">
           {error}
         </p>
       ) : null}
@@ -211,8 +211,8 @@ export function ScheduleEditor() {
     <div className="space-y-6">
       <div className="flex items-start justify-between gap-3">
         <div>
-          <h1 className="font-display soft text-2xl font-medium text-slate-800">Schedule</h1>
-          <p className="mt-1 text-sm text-ink-muted">Add, edit or remove rows. Changes only exist in this tab.</p>
+          <h1 className="text-2xl font-semibold text-slate-800">Schedule</h1>
+          <p className="mt-1 text-base text-ink-muted">Add, edit or remove rows. Changes only exist in this tab.</p>
         </div>
         {editing === null ? (
           <button type="button" onClick={() => setEditing("new")} className={buttonClass("primary", "md", "shrink-0")}>
@@ -240,12 +240,12 @@ export function ScheduleEditor() {
 
       {groups.map((group) => (
         <section key={group.day} aria-labelledby={`day-${group.day}`}>
-          <h2 id={`day-${group.day}`} className="text-sm font-semibold uppercase tracking-[0.1em] text-slate-800">
+          <h2 id={`day-${group.day}`} className="text-base font-semibold uppercase tracking-[0.08em] text-slate-800">
             {DAY_LABELS[group.day]}
           </h2>
           <div className="mt-2 space-y-2">
             {group.entries.length === 0 && editing !== "new" ? (
-              <p className="text-sm text-ink-muted">Nothing scheduled.</p>
+              <p className="text-base text-ink-muted">Nothing scheduled.</p>
             ) : null}
             {group.entries.map((entry) =>
               editing === entry.id ? (
@@ -267,7 +267,7 @@ export function ScheduleEditor() {
                 <article key={entry.id} className={adminCardClass}>
                   <div className="flex items-start justify-between gap-3">
                     <div className="min-w-0">
-                      <p className="flex items-center gap-2 text-sm font-semibold tabular-nums text-slate-800">
+                      <p className="flex items-center gap-2 text-base font-semibold tabular-nums text-slate-800">
                         {formatTimeRange(entry.start, entry.end)}
                         <span
                           aria-hidden="true"
@@ -276,8 +276,8 @@ export function ScheduleEditor() {
                         <span className="font-normal text-ink-muted">{KIND_META[entry.kind].label}</span>
                       </p>
                       <p className="mt-0.5 truncate text-base font-medium">{entry.activity}</p>
-                      {entry.court ? <p className="text-sm text-ink-muted">{entry.court}</p> : null}
-                      {entry.notes ? <p className="mt-1 text-sm text-ink-muted">{entry.notes}</p> : null}
+                      {entry.court ? <p className="text-base text-ink-muted">{entry.court}</p> : null}
+                      {entry.notes ? <p className="mt-1 text-base text-ink-muted">{entry.notes}</p> : null}
                     </div>
                     <div className="flex shrink-0 gap-1.5">
                       <button

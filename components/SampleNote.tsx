@@ -5,5 +5,5 @@
  * owner's real schedule and prices are in /data.
  */
 export function SampleNote() {
-  return <p className="mt-3 text-sm text-ink-muted">Sample content. Your real schedule and prices go here.</p>;
+  return <p className="mt-3 text-base text-ink-muted">Sample content. Your real schedule and prices go here.</p>;
 }

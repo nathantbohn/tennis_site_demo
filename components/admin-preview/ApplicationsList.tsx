@@ -22,8 +22,8 @@ export function ApplicationsList() {
   return (
     <div className="space-y-4">
       <div>
-        <h1 className="font-display soft text-2xl font-medium text-slate-800">Tournament applications</h1>
-        <p className="mt-1 text-sm text-ink-muted">
+        <h1 className="text-2xl font-semibold text-slate-800">Tournament applications</h1>
+        <p className="mt-1 text-base text-ink-muted">
           {applications.length} {applications.length === 1 ? "application" : "applications"}. Tap one for details.
         </p>
       </div>
@@ -39,7 +39,7 @@ export function ApplicationsList() {
                 type="button"
                 onClick={() => setFilter(value)}
                 aria-pressed={active}
-                className={`min-h-9 shrink-0 rounded-full px-3.5 text-sm font-medium ring-1 ring-inset transition-colors ${
+                className={`min-h-11 shrink-0 rounded-full px-3.5 text-base font-medium ring-1 ring-inset transition-colors ${
                   active
                     ? "bg-slate-800 text-white ring-slate-800"
                     : "bg-white text-ink-muted ring-slate-500/30 hover:bg-sage-100"
@@ -53,7 +53,7 @@ export function ApplicationsList() {
       </div>
 
       {visible.length === 0 ? (
-        <p className="rounded-2xl bg-white p-4 text-sm text-ink-muted ring-1 ring-slate-500/15">
+        <p className="rounded-2xl bg-white p-4 text-base text-ink-muted ring-1 ring-slate-500/15">
           No applications match this filter.
         </p>
       ) : (
@@ -67,15 +67,15 @@ export function ApplicationsList() {
                 <div className="flex items-start justify-between gap-3">
                   <div className="min-w-0">
                     <p className="truncate text-base font-medium">{app.fullName}</p>
-                    <p className="text-sm text-ink-muted">
+                    <p className="text-base text-ink-muted">
                       {app.tournamentName} · {app.division}
                     </p>
-                    <p className="mt-1 text-xs text-ink-muted">
+                    <p className="mt-1 text-base text-ink-muted">
                       {formatPhone(app.phone)} · {formatDateTime(app.submittedAt)}
                     </p>
                   </div>
                   <span
-                    className={`shrink-0 rounded-full px-2.5 py-1 text-xs font-semibold ${STATUS_CHIP_CLASS[app.status]}`}
+                    className={`shrink-0 rounded-full px-2.5 py-1 text-base font-semibold ${STATUS_CHIP_CLASS[app.status]}`}
                   >
                     {APPLICATION_STATUS_LABEL[app.status]}
                   </span>

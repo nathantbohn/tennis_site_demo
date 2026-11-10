@@ -4,6 +4,7 @@ import { formatTime } from "@/lib/format";
 import { formatPhone, mailtoHref, smsHref, telHref } from "@/lib/phone";
 import { socialLinkLabel } from "@/lib/social";
 import { Container } from "@/components/Container";
+import { EmailText } from "@/components/EmailText";
 import { ExternalIcon } from "@/components/Icons";
 import logo from "@/public/logo.png";
 
@@ -18,15 +19,15 @@ export function SiteFooter({ site }: { site: SiteInfo }) {
         <div>
           <p className="flex items-center gap-2.5">
             <Image src={logo} alt="" className="h-10 w-10" />
-            <span className="font-display soft text-2xl font-semibold text-white">{site.name}</span>
+            <span className="text-2xl font-semibold text-white">{site.name}</span>
           </p>
-          <p className="mt-3 font-display text-lg italic text-lime-300">{site.tagline}.</p>
-          <p className="mt-4 max-w-sm text-sm leading-relaxed">{site.description}</p>
+          <p className="mt-3 text-lg font-semibold text-lime-300">{site.tagline}.</p>
+          <p className="mt-4 max-w-sm text-base leading-relaxed">{site.description}</p>
         </div>
 
         <div>
-          <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-lime-300">Visit</h2>
-          <address className="mt-3 text-sm not-italic leading-relaxed">
+          <h2 className="text-base font-semibold uppercase tracking-[0.14em] text-lime-300">Visit</h2>
+          <address className="mt-3 text-base not-italic leading-relaxed">
             {address.street}
             <br />
             {address.city}, {address.state} {address.zip}
@@ -37,14 +38,14 @@ export function SiteFooter({ site }: { site: SiteInfo }) {
               </>
             ) : null}
           </address>
-          <a href={site.links.directions} className={`${linkClass} mt-1 text-sm`} target="_blank" rel="noopener noreferrer">
+          <a href={site.links.directions} className={`${linkClass} mt-1 text-base`} target="_blank" rel="noopener noreferrer">
             Directions <ExternalIcon className="h-3.5 w-3.5" />
           </a>
         </div>
 
         <div>
-          <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-lime-300">Hours</h2>
-          <dl className="mt-3 text-sm leading-relaxed">
+          <h2 className="text-base font-semibold uppercase tracking-[0.14em] text-lime-300">Hours</h2>
+          <dl className="mt-3 text-base leading-relaxed">
             {site.hours.map((h) => (
               <div key={h.label} className="flex justify-between gap-3">
                 <dt>{h.label}</dt>
@@ -54,12 +55,12 @@ export function SiteFooter({ site }: { site: SiteInfo }) {
               </div>
             ))}
           </dl>
-          {site.hoursNote ? <p className="mt-2 text-xs leading-relaxed text-sage-100/80">{site.hoursNote}</p> : null}
+          {site.hoursNote ? <p className="mt-2 text-base leading-relaxed text-sage-100/80">{site.hoursNote}</p> : null}
         </div>
 
         <div>
-          <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-lime-300">Contact</h2>
-          <ul className="mt-2 text-sm">
+          <h2 className="text-base font-semibold uppercase tracking-[0.14em] text-lime-300">Contact</h2>
+          <ul className="mt-2 text-base">
             <li>
               <a href={telHref(site.phone)} className={linkClass}>
                 {formatPhone(site.phone)}
@@ -73,8 +74,8 @@ export function SiteFooter({ site }: { site: SiteInfo }) {
               </li>
             ) : null}
             <li>
-              <a href={mailtoHref(site.email)} className={`${linkClass} break-all`}>
-                {site.email}
+              <a href={mailtoHref(site.email)} className={linkClass}>
+                <EmailText email={site.email} />
               </a>
             </li>
             {site.social.map((s) => (
@@ -94,7 +95,7 @@ export function SiteFooter({ site }: { site: SiteInfo }) {
         </div>
       </Container>
       <div className="border-t border-white/10">
-        <Container className="flex flex-col gap-1 py-5 text-xs text-sage-100/80 sm:flex-row sm:justify-between">
+        <Container className="flex flex-col gap-1 py-5 text-base text-sage-100/80 sm:flex-row sm:justify-between">
           <p>
             © {new Date().getFullYear()} {site.name}.
           </p>

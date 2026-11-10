@@ -23,7 +23,7 @@ function AdminTabs() {
               <Link
                 href={tab.href}
                 aria-current={active ? "page" : undefined}
-                className="relative flex min-h-13 items-center justify-center px-2 text-center text-sm font-semibold text-ink-muted transition-colors hover:text-ink aria-[current=page]:text-slate-800 after:absolute after:inset-x-3 after:bottom-0 after:h-[3px] after:rounded-full after:bg-lime-500 after:opacity-0 after:transition-opacity aria-[current=page]:after:opacity-100"
+                className="relative flex min-h-13 items-center justify-center px-2 text-center text-base font-semibold text-ink-muted transition-colors hover:text-ink aria-[current=page]:text-slate-800 after:absolute after:inset-x-3 after:bottom-0 after:h-[3px] after:rounded-full after:bg-lime-500 after:opacity-0 after:transition-opacity aria-[current=page]:after:opacity-100"
               >
                 {tab.label}
               </Link>
@@ -42,7 +42,7 @@ function AdminTabs() {
  */
 function PreviewBanner() {
   return (
-    <div role="status" className="bg-slate-900 px-4 py-2 text-center text-xs font-semibold uppercase tracking-[0.14em] text-cream-100 sm:text-sm">
+    <div role="status" className="bg-slate-900 px-4 py-2 text-center text-base font-semibold uppercase tracking-[0.1em] text-cream-100">
       Preview — not connected · changes reset on reload
     </div>
   );

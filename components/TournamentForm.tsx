@@ -70,7 +70,7 @@ function Field({
   const describedBy = [errorId, hintId].filter(Boolean).join(" ") || undefined;
   return (
     <div>
-      <label htmlFor={id} className="block text-sm font-semibold">
+      <label htmlFor={id} className="block text-base font-semibold">
         {label}
         {optional ? (
           <>
@@ -80,7 +80,7 @@ function Field({
         ) : null}
       </label>
       {hint ? (
-        <p id={hintId} className="mt-1 text-sm text-ink-muted">
+        <p id={hintId} className="mt-1 text-base text-ink-muted">
           {hint}
         </p>
       ) : null}
@@ -93,8 +93,8 @@ function Field({
         })}
       </div>
       {error ? (
-        <p id={errorId} className="mt-1.5 flex items-start gap-1.5 text-sm font-medium text-red-700">
-          <AlertIcon className="mt-0.5 h-4 w-4 shrink-0" />
+        <p id={errorId} className="mt-1.5 flex items-start gap-1.5 text-base font-medium text-red-700">
+          <AlertIcon className="mt-1 h-4 w-4 shrink-0" />
           <span>{error}</span>
         </p>
       ) : null}
@@ -106,7 +106,16 @@ function Field({
  * Tournament application. Client-side only in Phase 1: validates, normalizes
  * the phone number to E.164 and hands off to the submit stub.
  */
-export function TournamentForm({ tournaments, owner }: { tournaments: Tournament[]; owner: Owner }) {
+export function TournamentForm({
+  tournaments,
+  owner,
+  headingId,
+}: {
+  tournaments: Tournament[];
+  owner: Owner;
+  /** The id of the page heading that introduces this form; "Enter another player" scrolls back to it. */
+  headingId: string;
+}) {
   const uid = useId();
   const [values, setValues] = useState<Values>({
     fullName: "",
@@ -123,6 +132,8 @@ export function TournamentForm({ tournaments, owner }: { tournaments: Tournament
   const [receipt, setReceipt] = useState<ApplicationReceipt | null>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
+  // Set by "Enter another player"; consumed once the empty form is back on screen.
+  const restarting = useRef(false);
 
   const tournament = tournaments.find((t) => t.id === values.tournamentId);
   const isDoubles = /doubles/i.test(values.division);
@@ -139,6 +150,18 @@ export function TournamentForm({ tournaments, owner }: { tournaments: Tournament
     panelRef.current?.scrollIntoView({ block: "start" });
     headingRef.current?.focus({ preventScroll: true });
   }, [status]);
+
+  // "Enter another player" removes the button that was just tapped, so put the
+  // visitor back at the top of the application: the page's heading below the
+  // sticky header (same scroll-padding-top rules as above), then the first
+  // field, focused without a second scroll.
+  useEffect(() => {
+    if (status !== "idle" || !restarting.current) return;
+    restarting.current = false;
+    const nameField = document.getElementById(`${uid}-fullName`);
+    (document.getElementById(headingId) ?? nameField)?.scrollIntoView({ block: "start" });
+    nameField?.focus({ preventScroll: true });
+  }, [status, uid, headingId]);
 
   function update(field: keyof Values) {
     return (e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -187,6 +210,7 @@ export function TournamentForm({ tournaments, owner }: { tournaments: Tournament
   }
 
   function reset() {
+    restarting.current = true;
     setValues((v) => ({ ...v, fullName: "", phone: "", email: "", division: "", partnerName: "", notes: "" }));
     setErrors({});
     setReceipt(null);
@@ -215,14 +239,14 @@ export function TournamentForm({ tournaments, owner }: { tournaments: Tournament
         <h3
           ref={headingRef}
           tabIndex={-1}
-          className="font-display soft mt-5 text-3xl font-medium tracking-tight text-slate-800"
+          className="mt-5 text-3xl font-semibold tracking-tight text-slate-800"
         >
           Got it, {app.fullName.split(" ")[0]}.
         </h3>
         <p className="mt-3 leading-relaxed">
           {`${owner.firstName} will text ${formatPhone(app.phone)} to confirm your spot in ${tournament.name} (${app.division}).`}
         </p>
-        <dl className="mt-6 grid gap-x-8 gap-y-2 text-sm sm:grid-cols-2">
+        <dl className="mt-6 grid gap-x-8 gap-y-2 text-base sm:grid-cols-2">
           <div>
             <dt className="text-ink-muted">Dates</dt>
             <dd className="font-medium">{formatDateRange(tournament.startDate, tournament.endDate)}</dd>
@@ -254,16 +278,16 @@ export function TournamentForm({ tournaments, owner }: { tournaments: Tournament
 
   return (
     <form noValidate onSubmit={onSubmit} className="space-y-6" aria-describedby={`${uid}-intro`}>
-      <p id={`${uid}-intro`} className="text-sm text-ink-muted">
+      <p id={`${uid}-intro`} className="text-base text-ink-muted">
         Your mobile number is how we confirm your spot. Email is optional.
       </p>
 
       {errorCount > 0 ? (
         <p
           role="alert"
-          className="flex items-start gap-2.5 rounded-r-xl border-l-4 border-red-700 bg-white px-4 py-3 text-sm font-medium text-red-700"
+          className="flex items-start gap-2.5 rounded-r-xl border-l-4 border-red-700 bg-white px-4 py-3 text-base font-medium text-red-700"
         >
-          <AlertIcon className="mt-0.5 h-4 w-4 shrink-0" />
+          <AlertIcon className="mt-1 h-4 w-4 shrink-0" />
           <span>Please fix the {errorCount === 1 ? "highlighted field" : `${errorCount} highlighted fields`} below.</span>
         </p>
       ) : null}
@@ -412,7 +436,7 @@ export function TournamentForm({ tournaments, owner }: { tournaments: Tournament
         >
           {status === "submitting" ? "Sending…" : "Send application"}
         </button>
-        <p className="mt-3 text-xs leading-relaxed text-ink-muted">
+        <p className="mt-3 text-base leading-relaxed text-ink-muted">
           By sending this you agree that {owner.firstName} may call or text you about this event.
           Entry fees are collected at the club.
         </p>
