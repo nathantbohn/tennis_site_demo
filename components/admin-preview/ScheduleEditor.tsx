@@ -37,7 +37,7 @@ function fromEntry(entry: ScheduleEntry): FormValues {
     start: entry.start,
     end: entry.end,
     activity: entry.activity,
-    court: entry.court,
+    court: entry.court ?? "",
     kind: entry.kind,
     notes: entry.notes ?? "",
   };
@@ -45,7 +45,6 @@ function fromEntry(entry: ScheduleEntry): FormValues {
 
 function validate(values: FormValues): string | null {
   if (!values.activity.trim()) return "Enter what this session is.";
-  if (!values.court.trim()) return "Enter a court.";
   if (values.start >= values.end) return "End time must be after the start time.";
   return null;
 }
@@ -161,7 +160,7 @@ function RowForm({
 
       <div>
         <label htmlFor={`${uid}-court`} className={adminLabelClass}>
-          Court
+          Court (optional)
         </label>
         <input
           id={`${uid}-court`}
@@ -169,7 +168,6 @@ function RowForm({
           className={`${adminInputClass} mt-1`}
           value={values.court}
           onChange={(e) => setValues((v) => ({ ...v, court: e.target.value }))}
-          placeholder="Court 1"
         />
       </div>
 
@@ -230,7 +228,11 @@ export function ScheduleEditor() {
           initial={emptyValues()}
           onCancel={() => setEditing(null)}
           onSubmit={(values) => {
-            addScheduleEntry({ ...values, notes: values.notes.trim() || undefined });
+            addScheduleEntry({
+              ...values,
+              court: values.court.trim() || undefined,
+              notes: values.notes.trim() || undefined,
+            });
             setEditing(null);
           }}
         />
@@ -253,7 +255,11 @@ export function ScheduleEditor() {
                   initial={fromEntry(entry)}
                   onCancel={() => setEditing(null)}
                   onSubmit={(values) => {
-                    updateScheduleEntry(entry.id, { ...values, notes: values.notes.trim() || undefined });
+                    updateScheduleEntry(entry.id, {
+                      ...values,
+                      court: values.court.trim() || undefined,
+                      notes: values.notes.trim() || undefined,
+                    });
                     setEditing(null);
                   }}
                 />
@@ -270,7 +276,7 @@ export function ScheduleEditor() {
                         <span className="font-normal text-ink-muted">{KIND_META[entry.kind].label}</span>
                       </p>
                       <p className="mt-0.5 truncate text-base font-medium">{entry.activity}</p>
-                      <p className="text-sm text-ink-muted">{entry.court}</p>
+                      {entry.court ? <p className="text-sm text-ink-muted">{entry.court}</p> : null}
                       {entry.notes ? <p className="mt-1 text-sm text-ink-muted">{entry.notes}</p> : null}
                     </div>
                     <div className="flex shrink-0 gap-1.5">

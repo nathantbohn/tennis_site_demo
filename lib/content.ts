@@ -21,6 +21,7 @@ import {
   type SiteInfo,
   type Tournament,
 } from "@/data/types";
+import { todayInClubTimeZone } from "@/lib/format";
 
 const site = siteJson as SiteInfo;
 const services = servicesJson as Service[];
@@ -75,10 +76,17 @@ export async function getLatestPosts(limit = 3): Promise<Post[]> {
     .slice(0, limit);
 }
 
-/** Tournaments still taking applications, soonest first. */
-export async function getUpcomingTournaments(): Promise<Tournament[]> {
+/**
+ * Tournaments still taking applications, soonest first. "Open" is derived,
+ * not stored: registration stays open through the day `registrationCloses`
+ * falls on, judged in the club's time zone (America/New_York). Closed events
+ * are dropped here, so they never reach the tournaments list or the
+ * application form's select.
+ */
+export async function getUpcomingTournaments(now: Date = new Date()): Promise<Tournament[]> {
+  const today = todayInClubTimeZone(now);
   return tournaments
-    .filter((t) => t.status !== "past")
+    .filter((t) => t.registrationCloses >= today)
     .sort((a, b) => a.startDate.localeCompare(b.startDate));
 }
 

@@ -4,6 +4,7 @@ import { formatCalendarDate, formatDateRange, formatPrice } from "@/lib/format";
 import { ButtonLink } from "@/components/ButtonLink";
 import { Container } from "@/components/Container";
 import { ArrowIcon } from "@/components/Icons";
+import { SampleNote } from "@/components/SampleNote";
 import { SectionHeading } from "@/components/SectionHeading";
 import { TournamentForm } from "@/components/TournamentForm";
 
@@ -13,6 +14,10 @@ export const metadata: Metadata = {
     "Upcoming tournaments at DeLand Tennis Club and the application form. Players from beginner to advanced are welcome.",
   openGraph: { title: "Tournament application", url: "/tournaments" },
 };
+
+// Which events are open depends on today's date (see getUpcomingTournaments),
+// so re-render at most hourly instead of freezing the list at build time.
+export const revalidate = 3600;
 
 export default async function TournamentsPage() {
   const [site, tournaments] = await Promise.all([getSite(), getUpcomingTournaments()]);
@@ -26,6 +31,7 @@ export default async function TournamentsPage() {
           title="Play in a tournament"
           lede="The club welcomes players from beginners to advanced. Pick an event, tell us your division, and we will text you to confirm your spot."
         />
+        <SampleNote />
         <div className="mt-6">
           <ButtonLink href="#apply" variant="primary" external>
             Skip to the application

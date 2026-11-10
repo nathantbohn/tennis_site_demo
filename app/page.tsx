@@ -13,6 +13,7 @@ import { ArrowIcon, PhoneIcon } from "@/components/Icons";
 import { LatestPosts } from "@/components/LatestPosts";
 import { Placeholder } from "@/components/Placeholder";
 import { PriceList } from "@/components/PriceList";
+import { SampleNote } from "@/components/SampleNote";
 import { SectionHeading } from "@/components/SectionHeading";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -78,7 +79,7 @@ export default async function HomePage() {
             <Placeholder
               image={{
                 variant: "court",
-                alt: `The courts at ${site.name} in late-afternoon light, lines freshly swept`,
+                alt: `The courts at ${site.name} in late-afternoon light`,
               }}
               className="aspect-[4/3] rounded-[2rem] shadow-lift sm:aspect-[5/4] md:aspect-[4/5]"
             />
@@ -153,6 +154,7 @@ export default async function HomePage() {
               title="Court time that is easy to say yes to"
               lede="No membership required. Play once, or buy a pass and make it a habit."
             />
+            <SampleNote />
             <div className="mt-8">
               <AcePass item={acePass} site={site} />
             </div>

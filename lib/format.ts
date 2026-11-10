@@ -6,6 +6,23 @@ import type { DayOfWeek } from "@/data/types";
 
 export const CLUB_TIME_ZONE = "America/New_York";
 
+/**
+ * The calendar date right now at the club, as "YYYY-MM-DD" in
+ * America/New_York. Not the server's date: a Vercel build or request
+ * running in UTC is already on "tomorrow" for the last few evening hours
+ * in Florida. ISO date strings compare correctly as plain strings.
+ */
+export function todayInClubTimeZone(now: Date = new Date()): string {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: CLUB_TIME_ZONE,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(now);
+  const part = (type: "year" | "month" | "day") => parts.find((p) => p.type === type)?.value ?? "";
+  return `${part("year")}-${part("month")}-${part("day")}`;
+}
+
 export const DAY_LABELS: Record<DayOfWeek, string> = {
   Mon: "Monday",
   Tue: "Tuesday",

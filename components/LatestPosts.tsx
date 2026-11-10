@@ -25,7 +25,7 @@ export function LatestPosts({ posts, site }: { posts: Post[]; site: SiteInfo }) 
     <section aria-labelledby="latest-heading" className="py-16 md:py-24">
       <Container>
         <div className="flex flex-wrap items-end justify-between gap-4">
-          <SectionHeading eyebrow="Latest" id="latest-heading" title="From the courts this month" />
+          <SectionHeading eyebrow="Latest" id="latest-heading" title="Latest from the club" />
           {follow ? (
             <a
               href={follow.url}

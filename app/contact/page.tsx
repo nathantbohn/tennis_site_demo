@@ -156,7 +156,6 @@ export default async function ContactPage() {
               {[
                 "Our courts, lit for evening play",
                 "Hourly reservations, walk-ins when a court is free",
-                "ACE PASS holders: just say your name",
               ].map((line) => (
                 <li key={line} className="flex items-start gap-2.5">
                   <CheckIcon className="mt-1 h-4 w-4 shrink-0 text-lime-500" />

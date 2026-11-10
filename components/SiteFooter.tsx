@@ -96,7 +96,7 @@ export function SiteFooter({ site }: { site: SiteInfo }) {
       <div className="border-t border-white/10">
         <Container className="flex flex-col gap-1 py-5 text-xs text-sage-100/80 sm:flex-row sm:justify-between">
           <p>
-            © {new Date().getFullYear()} {site.name}. All times Eastern.
+            © {new Date().getFullYear()} {site.name}.
           </p>
           <p>
             {address.city}, {address.state}

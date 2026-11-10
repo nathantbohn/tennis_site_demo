@@ -29,6 +29,8 @@ function KindDot({ kind }: { kind: ScheduleKind }) {
 export function ScheduleDaySection({ group }: { group: ScheduleDay }) {
   const label = DAY_LABELS[group.day];
   const headingId = `day-${group.day.toLowerCase()}`;
+  // Court assignments are optional; with none on this day, drop the column.
+  const showCourt = group.entries.some((entry) => Boolean(entry.court));
   return (
     <section aria-labelledby={headingId} className="scroll-mt-32 md:scroll-mt-24" id={group.day.toLowerCase()}>
       <div className="flex items-baseline justify-between gap-4 border-b-2 border-slate-800 pb-2">
@@ -50,9 +52,11 @@ export function ScheduleDaySection({ group }: { group: ScheduleDay }) {
             <th scope="col" className="py-3 pr-4 font-semibold">
               Activity
             </th>
-            <th scope="col" className="w-32 py-3 pr-4 font-semibold">
-              Court
-            </th>
+            {showCourt ? (
+              <th scope="col" className="w-32 py-3 pr-4 font-semibold">
+                Court
+              </th>
+            ) : null}
             <th scope="col" className="py-3 font-semibold">
               Notes
             </th>
@@ -70,7 +74,7 @@ export function ScheduleDaySection({ group }: { group: ScheduleDay }) {
                   {entry.activity}
                 </span>
               </td>
-              <td className="py-3.5 pr-4">{entry.court}</td>
+              {showCourt ? <td className="py-3.5 pr-4">{entry.court}</td> : null}
               <td className="py-3.5 text-ink-muted">{entry.notes ?? ""}</td>
             </tr>
           ))}
@@ -82,8 +86,12 @@ export function ScheduleDaySection({ group }: { group: ScheduleDay }) {
           <li key={entry.id} className="py-4">
             <p className="flex items-center gap-2 text-sm font-semibold tabular-nums text-slate-800">
               {formatTimeRange(entry.start, entry.end)}
-              <span className="text-ink-muted">·</span>
-              <span className="font-medium text-ink-muted">{entry.court}</span>
+              {entry.court ? (
+                <>
+                  <span className="text-ink-muted">·</span>
+                  <span className="font-medium text-ink-muted">{entry.court}</span>
+                </>
+              ) : null}
             </p>
             <p className="mt-1 flex items-center gap-2 text-lg font-medium leading-snug">
               <KindDot kind={entry.kind} />

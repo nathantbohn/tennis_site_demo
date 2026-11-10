@@ -31,7 +31,7 @@
       "See the weekly schedule for days and times. No membership required."
     ],
     "includes": [
-      "90-minute clinics, capped at 6 players per court",
+      "90-minute clinics",
       "Live-ball drills and point play, not just feeding",
       "Loaner racquets if you are just getting started"
     ],
@@ -41,7 +41,7 @@
       "variant": "grass",
       "alt": "Four adults at the net during a doubles drill, coach feeding balls"
     },
-    "todo": "TODO(fred): clinic length, cap per court, levels and 'no membership required' are placeholders. Confirm."
+    "todo": "TODO(fred): clinic length, levels and 'no membership required' are placeholders. Confirm."
   },
   {
     "id": "court-time",
@@ -49,7 +49,7 @@
     "tagline": "Our lit courts, open 7 to 7.",
     "audience": "Anyone who wants to play. Bring a partner or ask Fred to find you one.",
     "description": [
-      "Reserve a court by phone or text and just show up. Courts are lined and ready every day, and the lights make evening play the best time of day in a Florida summer.",
+      "Reserve a court by phone or text and just show up. The lights make evening play the best time of day in a Florida summer.",
       "Play often? The ACE PASS covers five visits for one flat price."
     ],
     "includes": [
@@ -63,7 +63,7 @@
       "variant": "dusk",
       "alt": "Courts at dusk with the lights just switched on"
     },
-    "todo": "TODO(fred): 'courts lined and ready every day' and hourly reservation details are placeholders (an earlier draft said 'rolled', which is clay-specific maintenance — dropped since the surface isn't confirmed). Confirm how court time is actually booked today, and how the courts are actually maintained."
+    "todo": "TODO(fred): hourly reservation details are placeholders. Confirm how court time is actually booked today. Claims about court upkeep were removed from this copy until you tell us how the courts are actually maintained."
   },
   {
     "id": "juniors",

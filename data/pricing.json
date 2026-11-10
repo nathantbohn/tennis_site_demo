@@ -10,8 +10,7 @@
     "description": "Five visits of court time for one flat price. Clinics and private lessons are an extra fee.",
     "details": [
       "Court time only",
-      "Use it any day the club is open",
-      "Share it with a regular partner"
+      "Use it any day the club is open"
     ],
     "todo": "TODO(fred): the current site shows the ACE PASS at both $60 and $75 on different pages. $75 is used here. Confirm the price, whether it expires, and whether it can be shared."
   },
