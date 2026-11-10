@@ -6,12 +6,13 @@ import { ButtonLink } from "@/components/ButtonLink";
 import { Container } from "@/components/Container";
 import { MessageIcon, PhoneIcon } from "@/components/Icons";
 import { ScheduleDaySection, ScheduleLegend } from "@/components/ScheduleTable";
+import { SampleNote } from "@/components/SampleNote";
 import { SectionHeading } from "@/components/SectionHeading";
 
 export const metadata: Metadata = {
   title: "Weekly schedule",
   description:
-    "Clinics, junior sessions, leagues and social play at DeLand Tennis Club, by day and court.",
+    "Clinics, junior sessions, leagues and social play at DeLand Tennis Club, by day.",
   openGraph: { title: "Weekly schedule", url: "/schedule" },
 };
 
@@ -25,9 +26,10 @@ export default async function SchedulePage() {
         <SectionHeading
           as="h1"
           eyebrow="Schedule"
-          title="This week on the courts"
+          title="Weekly schedule"
           lede={`Clinics, juniors, leagues and social play. Courts are open ${hours.label.toLowerCase()} from ${formatTime(hours.open)} to ${formatTime(hours.close)}; anything not listed below is open court time you can reserve.`}
         />
+        <SampleNote />
 
         <nav aria-label="Jump to day" className="mt-8 -mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0">
           <ul className="flex gap-2">
@@ -35,7 +37,7 @@ export default async function SchedulePage() {
               <li key={group.day}>
                 <a
                   href={`#${group.day.toLowerCase()}`}
-                  className="inline-flex min-h-11 items-center rounded-full bg-aqua-100 px-4 text-sm font-medium ring-1 ring-inset ring-slate-500/30 hover:bg-aqua-200"
+                  className="inline-flex min-h-11 items-center rounded-full bg-aqua-100 px-4 text-base font-medium ring-1 ring-inset ring-slate-500/30 hover:bg-aqua-200"
                 >
                   <span className="sm:hidden">{group.day}</span>
                   <span className="hidden sm:inline">{DAY_LABELS[group.day]}</span>

@@ -21,7 +21,6 @@
     "entryFee": 35,
     "entryFeeNote": "Per player, per event. Play a second event for $15.",
     "description": "Our biggest weekend of the year. Two days of tennis for every level, lunch on the clubhouse porch, and trophies for winners and finalists.",
-    "status": "open",
     "todo": "TODO(fred): placeholder tournament (renamed from 'Fall Clay Classic' — court surface is unverified, see facility.todo in site.json). The current site says the club welcomes players from beginners to advanced levels. What tournaments are actually planned, and what are the dates, divisions and fees?"
   },
   {
@@ -34,7 +33,6 @@
     "entryFee": 25,
     "entryFeeNote": "Per player. Includes lunch.",
     "description": "A low-pressure Saturday of mixed doubles to close out the year. Sign up solo and we will pair you.",
-    "status": "open",
     "todo": "TODO(fred): placeholder event."
   },
   {
@@ -52,7 +50,6 @@
     "entryFee": 30,
     "entryFeeNote": "Per player.",
     "description": "Start the year with a full day of doubles under the January sun.",
-    "status": "open",
     "todo": "TODO(fred): placeholder event."
   }
 ]

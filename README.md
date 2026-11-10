@@ -22,6 +22,18 @@ npm run lint       # eslint, zero warnings allowed
 
 `npm run build && npm start` serves the production build locally.
 
+When you touch type sizes or fonts, also run the type check against a fresh build:
+
+```bash
+npm run build && npm run check:type    # needs a browser once: npx playwright install chromium
+```
+
+It walks every route at 375px and fails if any visible text computes below
+14px or if Fraunces (`font-display`) is used on anything but an h1, a section
+h2 or a price figure. It also reports, per page, the share of characters under
+16px (target: under 10%; add `-- --strict` to fail on it). See the header of
+`scripts/check-type-floor.mjs` for options.
+
 ## Where things live
 
 | Path            | What                                                                     |
@@ -30,7 +42,7 @@ npm run lint       # eslint, zero warnings allowed
 | `components/`   | UI. Server components by default; only `NavLinks` and `TournamentForm` are client components |
 | `data/`         | **All editable content**, as JSON, typed by `data/types.ts`              |
 | `lib/content.ts`| The only place that reads `/data`. Pages call `getSite()`, `getSchedule()` and friends |
-| `lib/notify.ts` | `notify(to, message, channel)`: the single exit for outbound messages. Logs in Phase 1 |
+| `lib/notify.ts` | `notify(to, message, channel)`: the single exit for outbound messages. A silent stub in Phase 1 |
 | `lib/phone.ts`  | E.164 normalization and display formatting for phone numbers             |
 | `lib/format.ts` | Dates, times and prices. Timestamps are UTC in data, rendered in America/New_York |
 
@@ -69,9 +81,14 @@ gradient block, and each block's `alt` text describes the shot to take later.
 - `app/icon.svg` is a tennis-ball favicon, separate from the logo.
 - Colors live in `app/globals.css` under `@theme`, derived from the club's
   own site (sage/aqua backgrounds, dark blue-gray structure, a lime accent,
-  pale green/cream highlights, one dark red reserved for a single heading).
-  The palette table and every contrast check are in the PR that introduced
-  it — start there before adding a new color.
+  pale green/cream highlights, one dark red for a single heading and the
+  tournament form's error text). The palette table and every contrast check
+  are in the PR that introduced it — start there before adding a new color.
+- Type: the audience is older adults reading phones outdoors. DM Sans does
+  the work; Fraunces (`font-display`) is only for h1, section h2s and price
+  figures. Nothing renders below 14px, informational text (price units, dates,
+  schedule times and notes, hints, the footer) is 16px or more, and the header
+  nav is 15px. `npm run check:type` enforces it.
 
 ## Deploying to Vercel
 

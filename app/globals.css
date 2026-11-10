@@ -3,8 +3,9 @@
 /*
   Palette: derived from the club's own site (delandtennis.com) — sage and
   aqua backgrounds, dark blue-gray structure, a lime-green accent, pale
-  green/cream highlight tones, and a single dark red reserved for one
-  heading. Every text/background pair used on the site is checked against
+  green/cream highlight tones, and a dark red kept for one heading plus
+  the tournament form's error text. Every text/background pair used on the
+  site is checked against
   WCAG AA (see palette notes in the PR description for the full table).
 
   Two reference colors are deliberately NOT used as-is:
@@ -50,7 +51,8 @@
   /* Highlight cream (ref paleCream #F0FAD2). */
   --color-cream-100: #f0fad2;
 
-  /* Dark red, reserved for exactly one heading (ref #990000). */
+  /* Dark red (ref #990000). One accent heading (app/page.tsx) and the tournament form's
+     errors (components/TournamentForm.tsx): 8.9:1 on white, 6.6:1 on the sage page. */
   --color-red-700: #990000;
 
   --color-ink: #10161a;

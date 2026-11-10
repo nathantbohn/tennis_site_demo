@@ -166,7 +166,12 @@ export type ScheduleEntry = Reviewable & {
   start: LocalTime;
   end: LocalTime;
   activity: string;
-  court: string;
+  /**
+   * Optional. Court assignments aren't confirmed, so the sample schedule
+   * leaves this out; the Court column (and the court line on phones)
+   * only renders when an entry has one.
+   */
+  court?: string;
   kind: ScheduleKind;
   /** Level, age group, price pointer, or anything else worth knowing. */
   notes?: string;
@@ -185,8 +190,11 @@ export type Post = Reviewable & {
   image: PlaceholderImage;
 };
 
-export type TournamentStatus = "open" | "closed" | "past";
-
+/**
+ * There is no stored open/closed flag. An event is open while
+ * `registrationCloses` is today or later in America/New_York — see
+ * getUpcomingTournaments in lib/content.ts.
+ */
 export type Tournament = Reviewable & {
   id: string;
   name: string;
@@ -200,7 +208,6 @@ export type Tournament = Reviewable & {
   entryFee: number;
   entryFeeNote?: string;
   description: string;
-  status: TournamentStatus;
 };
 
 /** What the application form submits. Phone (E.164) is the primary contact. */

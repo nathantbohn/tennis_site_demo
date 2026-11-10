@@ -13,6 +13,7 @@ import { ArrowIcon, PhoneIcon } from "@/components/Icons";
 import { LatestPosts } from "@/components/LatestPosts";
 import { Placeholder } from "@/components/Placeholder";
 import { PriceList } from "@/components/PriceList";
+import { SampleNote } from "@/components/SampleNote";
 import { SectionHeading } from "@/components/SectionHeading";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -57,7 +58,7 @@ export default async function HomePage() {
                 <ArrowIcon />
               </ButtonLink>
             </div>
-            <p className="mt-5 text-sm text-ink-muted">
+            <p className="mt-5 text-base text-ink-muted">
               {site.phoneAcceptsSms ? (
                 <>
                   Prefer to text?{" "}
@@ -78,12 +79,12 @@ export default async function HomePage() {
             <Placeholder
               image={{
                 variant: "court",
-                alt: `The courts at ${site.name} in late-afternoon light, lines freshly swept`,
+                alt: `The courts at ${site.name} in late-afternoon light`,
               }}
               className="aspect-[4/3] rounded-[2rem] shadow-lift sm:aspect-[5/4] md:aspect-[4/5]"
             />
             <p
-              className="font-display absolute -top-3 right-3 rotate-3 rounded-full bg-cream-100 px-3.5 py-1.5 text-[0.95rem] font-medium italic text-slate-800 shadow-lift md:-right-3"
+              className="absolute -top-3 right-3 rotate-3 rounded-full bg-cream-100 px-3.5 py-1.5 text-base font-semibold text-slate-800 shadow-lift md:-right-3"
               aria-label={`Club motto: ${site.tagline}`}
             >
               {site.tagline}.
@@ -92,7 +93,7 @@ export default async function HomePage() {
               {site.facility.highlights.map((h) => (
                 <li
                   key={h}
-                  className="rounded-full bg-aqua-100 px-3 py-1.5 text-xs font-medium text-slate-800 ring-1 ring-inset ring-slate-500/20"
+                  className="rounded-full bg-aqua-100 px-3 py-1.5 text-base font-medium leading-snug text-slate-800 ring-1 ring-inset ring-slate-500/20"
                 >
                   {h}
                 </li>
@@ -126,14 +127,14 @@ export default async function HomePage() {
                   href={`/services#${service.id}`}
                   className="group flex items-baseline gap-4 py-5 transition-colors hover:bg-sage-100 sm:gap-6 sm:px-3"
                 >
-                  <span className="font-display w-8 shrink-0 text-lg text-slate-800">
+                  <span className="w-8 shrink-0 text-lg font-semibold text-slate-800">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <span className="min-w-0 flex-1">
-                    <span className="font-display soft block text-2xl font-medium leading-tight text-slate-800">
+                    <span className="block text-2xl font-semibold leading-tight text-slate-800">
                       {service.name}
                     </span>
-                    <span className="mt-1 block text-[0.9375rem] text-ink-muted">{service.tagline}</span>
+                    <span className="mt-1 block text-base text-ink-muted">{service.tagline}</span>
                   </span>
                   <ArrowIcon className="h-5 w-5 shrink-0 self-center text-slate-800 transition-transform group-hover:translate-x-1" />
                 </Link>
@@ -153,13 +154,14 @@ export default async function HomePage() {
               title="Court time that is easy to say yes to"
               lede="No membership required. Play once, or buy a pass and make it a habit."
             />
+            <SampleNote />
             <div className="mt-8">
               <AcePass item={acePass} site={site} />
             </div>
           </div>
           <div className="mt-12 md:col-span-7 md:mt-0 md:pt-2">
             <PriceList items={otherPricing} />
-            <p className="mt-6 text-sm text-ink-muted">
+            <p className="mt-6 text-base text-ink-muted">
               Prices are per person unless noted and can change with the season. Call or text to
               confirm before you come out.
             </p>
@@ -169,9 +171,10 @@ export default async function HomePage() {
 
       <LatestPosts posts={posts} site={site} />
 
-      {/* Meet Fred / plan your visit. The one place the club's dark red
-          appears on the site — a single mission-style heading introducing
-          the person behind the club, not spread across every section. */}
+      {/* Meet Fred / plan your visit. The one heading in the club's dark red
+          (the tournament form's error text is the only other red) — a single
+          mission-style heading introducing the person behind the club, not
+          spread across every section. */}
       <section aria-labelledby="visit-heading" className="bg-lime-100 py-16 md:py-24">
         <Container className="grid gap-10 md:grid-cols-12 md:items-center">
           <div className="mx-auto w-56 md:col-span-4 md:w-full md:max-w-xs">
@@ -183,7 +186,7 @@ export default async function HomePage() {
               className="aspect-square rounded-full"
               note={false}
             />
-            <p className="mt-3 text-center text-xs text-ink-muted" aria-hidden="true">
+            <p className="mt-3 text-center text-base text-ink-muted" aria-hidden="true">
               Photo to come · {site.owner.firstName} on the clubhouse porch
             </p>
           </div>

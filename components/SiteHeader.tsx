@@ -25,7 +25,7 @@ export function SiteHeader({ site }: { site: SiteInfo }) {
           aria-label={`${site.name} home`}
         >
           <Image src={logo} alt="" priority className="h-10 w-10 shrink-0 sm:h-11 sm:w-11" />
-          <span className="font-display soft text-[1.2rem] font-semibold leading-none tracking-tight text-white sm:text-[1.35rem]">
+          <span className="text-[1.2rem] font-semibold leading-none tracking-tight text-white sm:text-[1.35rem]">
             <span className="sm:hidden">{site.shortName}</span>
             <span className="hidden sm:inline">{site.name}</span>
           </span>

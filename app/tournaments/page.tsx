@@ -4,6 +4,7 @@ import { formatCalendarDate, formatDateRange, formatPrice } from "@/lib/format";
 import { ButtonLink } from "@/components/ButtonLink";
 import { Container } from "@/components/Container";
 import { ArrowIcon } from "@/components/Icons";
+import { SampleNote } from "@/components/SampleNote";
 import { SectionHeading } from "@/components/SectionHeading";
 import { TournamentForm } from "@/components/TournamentForm";
 
@@ -13,6 +14,10 @@ export const metadata: Metadata = {
     "Upcoming tournaments at DeLand Tennis Club and the application form. Players from beginner to advanced are welcome.",
   openGraph: { title: "Tournament application", url: "/tournaments" },
 };
+
+// Which events are open depends on today's date (see getUpcomingTournaments),
+// so re-render at most hourly instead of freezing the list at build time.
+export const revalidate = 3600;
 
 export default async function TournamentsPage() {
   const [site, tournaments] = await Promise.all([getSite(), getUpcomingTournaments()]);
@@ -26,6 +31,7 @@ export default async function TournamentsPage() {
           title="Play in a tournament"
           lede="The club welcomes players from beginners to advanced. Pick an event, tell us your division, and we will text you to confirm your spot."
         />
+        <SampleNote />
         <div className="mt-6">
           <ButtonLink href="#apply" variant="primary" external>
             Skip to the application
@@ -40,28 +46,28 @@ export default async function TournamentsPage() {
           {tournaments.map((t) => (
             <li key={t.id} id={t.id} className="scroll-mt-32 py-8 md:grid md:grid-cols-12 md:gap-10 md:py-10">
               <div className="md:col-span-4">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-800">
+                <p className="text-base font-semibold uppercase tracking-[0.1em] text-slate-800">
                   {formatDateRange(t.startDate, t.endDate)}
                 </p>
-                <h3 className="font-display soft mt-2 text-3xl font-medium leading-tight tracking-tight text-slate-800">
+                <h3 className="mt-2 text-3xl font-semibold leading-tight tracking-tight text-slate-800">
                   {t.name}
                 </h3>
-                <p className="mt-3 text-sm text-ink-muted">
+                <p className="mt-3 text-base text-ink-muted">
                   Applications close {formatCalendarDate(t.registrationCloses)}
                 </p>
-                <p className="mt-1 text-sm">
+                <p className="mt-1 text-base">
                   <span className="font-display text-xl font-medium text-slate-800">{formatPrice(t.entryFee)}</span>{" "}
                   <span className="text-ink-muted">{t.entryFeeNote ?? "per player"}</span>
                 </p>
               </div>
               <div className="mt-5 md:col-span-8 md:mt-0">
                 <p className="leading-relaxed">{t.description}</p>
-                <p className="mt-3 text-sm leading-relaxed text-ink-muted">
+                <p className="mt-3 text-base leading-relaxed text-ink-muted">
                   <span className="font-semibold text-ink">Format:</span> {t.format}
                 </p>
                 <ul className="mt-4 flex flex-wrap gap-2" aria-label={`${t.name} divisions`}>
                   {t.divisions.map((d) => (
-                    <li key={d} className="rounded-full bg-aqua-100 px-3 py-1.5 text-sm ring-1 ring-inset ring-slate-500/30">
+                    <li key={d} className="rounded-full bg-aqua-100 px-3 py-1.5 text-base ring-1 ring-inset ring-slate-500/30">
                       {d}
                     </li>
                   ))}
@@ -85,6 +91,7 @@ export default async function TournamentsPage() {
           </div>
           <div className="mt-8 md:col-span-7 md:mt-0">
             <TournamentForm
+              headingId="apply-heading"
               tournaments={tournaments}
               owner={{ phone: site.phone, email: site.email, firstName: site.owner.firstName }}
             />

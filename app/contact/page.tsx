@@ -5,6 +5,7 @@ import { formatPhone, mailtoHref, smsHref, telHref } from "@/lib/phone";
 import { socialLinkLabel } from "@/lib/social";
 import { ButtonLink } from "@/components/ButtonLink";
 import { Container } from "@/components/Container";
+import { EmailText } from "@/components/EmailText";
 import { CheckIcon, ExternalIcon, MailIcon, MessageIcon, PhoneIcon, PinIcon } from "@/components/Icons";
 import { Placeholder } from "@/components/Placeholder";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -39,7 +40,7 @@ export default async function ContactPage() {
           <a href={telHref(site.phone)} className={actionClass}>
             <PhoneIcon className="h-6 w-6 shrink-0 text-slate-800" />
             <span>
-              <span className="block text-xs font-semibold uppercase tracking-[0.16em] text-ink-muted">Call</span>
+              <span className="block text-sm font-semibold uppercase tracking-[0.14em] text-ink-muted">Call</span>
               <span className="block text-lg font-semibold">{formatPhone(site.phone)}</span>
             </span>
           </a>
@@ -47,7 +48,7 @@ export default async function ContactPage() {
             <a href={smsHref(site.phone)} className={actionClass}>
               <MessageIcon className="h-6 w-6 shrink-0 text-slate-800" />
               <span>
-                <span className="block text-xs font-semibold uppercase tracking-[0.16em] text-ink-muted">Text</span>
+                <span className="block text-sm font-semibold uppercase tracking-[0.14em] text-ink-muted">Text</span>
                 <span className="block text-lg font-semibold">{formatPhone(site.phone)}</span>
               </span>
             </a>
@@ -55,14 +56,16 @@ export default async function ContactPage() {
           <a href={mailtoHref(site.email)} className={actionClass}>
             <MailIcon className="h-6 w-6 shrink-0 text-slate-800" />
             <span className="min-w-0">
-              <span className="block text-xs font-semibold uppercase tracking-[0.16em] text-ink-muted">Email</span>
-              <span className="block break-all text-lg font-semibold">{site.email}</span>
+              <span className="block text-sm font-semibold uppercase tracking-[0.14em] text-ink-muted">Email</span>
+              <span className="block text-lg font-semibold">
+                <EmailText email={site.email} />
+              </span>
             </span>
           </a>
           <a href={site.links.directions} target="_blank" rel="noopener noreferrer" className={actionClass}>
             <PinIcon className="h-6 w-6 shrink-0 text-slate-800" />
             <span>
-              <span className="block text-xs font-semibold uppercase tracking-[0.16em] text-ink-muted">Directions</span>
+              <span className="block text-sm font-semibold uppercase tracking-[0.14em] text-ink-muted">Directions</span>
               <span className="block text-lg font-semibold">
                 {address.street}
                 <ExternalIcon className="ml-1.5 inline h-4 w-4 align-baseline text-ink-muted" />
@@ -103,21 +106,21 @@ export default async function ContactPage() {
           </div>
         </div>
         <div className="md:col-span-5">
-          <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-800">Where</h2>
-          <address className="font-display soft mt-2 text-2xl not-italic leading-snug text-slate-800">
+          <h2 className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-800">Where</h2>
+          <address className="mt-2 text-2xl font-semibold not-italic leading-snug text-slate-800">
             {address.street}
             <br />
             {address.city}, {address.state} {address.zip}
           </address>
           {address.landmark ? <p className="mt-2 text-ink-muted">{address.landmark}.</p> : null}
 
-          <h2 className="mt-8 text-xs font-semibold uppercase tracking-[0.18em] text-slate-800">When</h2>
-          <p className="font-display soft mt-2 text-2xl leading-snug text-slate-800">
+          <h2 className="mt-8 text-sm font-semibold uppercase tracking-[0.16em] text-slate-800">When</h2>
+          <p className="mt-2 text-2xl font-semibold leading-snug text-slate-800">
             {hours.label}, {formatTime(hours.open)} – {formatTime(hours.close)}
           </p>
           {site.hoursNote ? <p className="mt-2 leading-relaxed text-ink-muted">{site.hoursNote}</p> : null}
 
-          <h2 className="mt-8 text-xs font-semibold uppercase tracking-[0.18em] text-slate-800">Follow</h2>
+          <h2 className="mt-8 text-sm font-semibold uppercase tracking-[0.16em] text-slate-800">Follow</h2>
           <ul className="mt-2 space-y-1">
             {site.social.map((s) => (
               <li key={s.platform}>
@@ -144,7 +147,7 @@ export default async function ContactPage() {
           className="on-dark scroll-mt-32 rounded-3xl bg-slate-800 p-6 text-white sm:p-10 md:scroll-mt-24 md:grid md:grid-cols-12 md:gap-10"
         >
           <div className="md:col-span-7">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-lime-300">Book a court</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-lime-300">Book a court</p>
             <h2 id="book-heading" className="font-display soft mt-2 text-3xl font-medium tracking-tight sm:text-4xl">
               Reserve by phone or text
             </h2>
@@ -152,11 +155,10 @@ export default async function ContactPage() {
               Tell {owner.firstName} the day and time you want and how many players. He confirms by
               text. Same-day courts are usually available; evenings under the lights go first.
             </p>
-            <ul className="mt-5 space-y-2 text-[0.9375rem] text-sage-100">
+            <ul className="mt-5 space-y-2 text-base text-sage-100">
               {[
-                "Our courts, lit for evening play",
+                "Courts lit for evening play",
                 "Hourly reservations, walk-ins when a court is free",
-                "ACE PASS holders: just say your name",
               ].map((line) => (
                 <li key={line} className="flex items-start gap-2.5">
                   <CheckIcon className="mt-1 h-4 w-4 shrink-0 text-lime-500" />
@@ -197,8 +199,8 @@ export default async function ContactPage() {
               title="A vintage clubhouse, back in action"
               lede={site.description}
             />
-            <h3 className="font-display soft mt-10 text-2xl font-medium text-slate-800">{owner.name}</h3>
-            <p className="mt-1 text-sm font-medium text-slate-800">
+            <h3 className="mt-10 text-2xl font-semibold text-slate-800">{owner.name}</h3>
+            <p className="mt-1 text-base font-medium text-slate-800">
               {owner.title} · {owner.credentials}
             </p>
             <div className="mt-4 space-y-4 leading-relaxed">
@@ -210,7 +212,7 @@ export default async function ContactPage() {
               {site.facility.highlights.map((h) => (
                 <li
                   key={h}
-                  className="rounded-full bg-aqua-100 px-3 py-1.5 text-sm font-medium text-slate-800 ring-1 ring-inset ring-slate-500/20"
+                  className="rounded-full bg-aqua-100 px-3 py-1.5 text-base font-medium leading-snug text-slate-800 ring-1 ring-inset ring-slate-500/20"
                 >
                   {h}
                 </li>

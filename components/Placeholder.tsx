@@ -56,7 +56,7 @@ export function Placeholder({ image, className = "", note = true }: Props) {
       {note ? (
         <span
           aria-hidden="true"
-          className="absolute bottom-3 left-3 max-w-[calc(100%-1.5rem)] truncate rounded-full bg-ink/60 px-2.5 py-1 text-xs text-white backdrop-blur-sm"
+          className="absolute bottom-3 left-3 max-w-[calc(100%-1.5rem)] truncate rounded-full bg-ink/60 px-2.5 py-1 text-base text-white backdrop-blur-sm"
         >
           {typeof note === "string" ? note : `Photo to come · ${image.alt}`}
         </span>

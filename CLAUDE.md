@@ -39,7 +39,9 @@ Build only the current phase. Design so the next phases are additions, not rewri
 - Phone number is the universal identity (members, owner, applicants).
   Store E.164.
 - All outbound messages go through one `notify(to, message, channel)`
-  function in /lib/notify. Phase 1: it logs. Later: email, SMS.
+  function in /lib/notify. Phase 1: a stub that sends nothing and logs
+  nothing (the form runs in the browser, so a log line would put applicant
+  details in the visitor's console). Later: email, SMS.
 - Bookings (Phase 3) use a status enum: PENDING | CONFIRMED | CANCELLED.
   Default flow auto-confirms; PENDING exists so owner-approval-by-text
   can be enabled later with a config flag, not a schema change.
@@ -52,6 +54,11 @@ Build only the current phase. Design so the next phases are additions, not rewri
 - `npm run build` must pass before opening a PR
 - Placeholder photos are fine — a real photo shoot comes later. Do not use
   the current site's snapshot photo grid.
+- Type: the audience is older adults reading phones outdoors. No rendered
+  text under 14px; informational text (price units, dates, schedule times and
+  notes, form hints, the footer) is 16px or more; header nav links are 15px at
+  375px. Fraunces (`font-display`) only on h1, section h2 and price figures;
+  everything else is DM Sans. `npm run build && npm run check:type` checks it.
 
 ## Out of scope entirely
 Website→social publishing, multi-tenancy, a CMS.

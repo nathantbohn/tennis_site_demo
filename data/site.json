@@ -3,10 +3,10 @@
   "shortName": "DeLand Tennis",
   "tagline": "Make tennis great again",
   "todo": "TODO(fred): 'Make Tennis Great Again' is the tagline in the current site's browser title. It is used as the club motto in the hero. Keep it, or swap for something like 'Tennis in the heart of DeLand'?",
-  "description": "Our lit courts and a vintage clubhouse in DeLand, Florida. Private and group lessons, clinics, leagues, junior camps and court time for players of every age and level, run by USPTA pro Fred Schwan.",
+  "description": "Lit courts and a vintage clubhouse in DeLand, Florida. Private and group lessons, clinics, leagues, junior camps and court time for players of every age and level, run by USPTA pro Fred Schwan.",
   "hero": {
     "eyebrow": "Tennis in DeLand, Florida",
-    "headline": "Our lit courts, a vintage clubhouse, and a pro who answers his phone.",
+    "headline": "Lit courts, a vintage clubhouse, and a pro who answers his phone.",
     "lede": "Lessons, clinics, leagues and court time for every age and level. Call or text to book a court or set up your first lesson.",
     "todo": "TODO(fred): hero headline and lede are placeholder copy. Earlier drafts said 'six lit clay courts', which came from research that turned out to describe a different DeLand-area venue — see facility.todo for the court count and surface, which need to be confirmed before either goes back in the headline."
   },

@@ -70,10 +70,60 @@ export function CheckIcon({ className = "h-4 w-4" }: IconProps) {
   );
 }
 
+/** Circled exclamation mark. Sits beside error text; never the only cue. */
+export function AlertIcon({ className = "h-4 w-4" }: IconProps) {
+  return (
+    <svg {...common} className={className}>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 7.5v5.5M12 16.5h.01" />
+    </svg>
+  );
+}
+
 export function ExternalIcon({ className = "h-4 w-4" }: IconProps) {
   return (
     <svg {...common} className={className}>
       <path d="M14 5h5v5M19 5l-8 8M19 14v5H5V5h5" />
+    </svg>
+  );
+}
+
+export function PlusIcon({ className = "h-4 w-4" }: IconProps) {
+  return (
+    <svg {...common} className={className}>
+      <path d="M12 5v14M5 12h14" />
+    </svg>
+  );
+}
+
+export function PencilIcon({ className = "h-4 w-4" }: IconProps) {
+  return (
+    <svg {...common} className={className}>
+      <path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z" />
+    </svg>
+  );
+}
+
+export function TrashIcon({ className = "h-4 w-4" }: IconProps) {
+  return (
+    <svg {...common} className={className}>
+      <path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 11v6M14 11v6" />
+    </svg>
+  );
+}
+
+export function CloseIcon({ className = "h-4 w-4" }: IconProps) {
+  return (
+    <svg {...common} className={className}>
+      <path d="M6 6l12 12M18 6 6 18" />
+    </svg>
+  );
+}
+
+export function ChevronLeftIcon({ className = "h-4 w-4" }: IconProps) {
+  return (
+    <svg {...common} className={className}>
+      <path d="M15 19 8 12l7-7" />
     </svg>
   );
 }

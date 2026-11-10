@@ -25,7 +25,7 @@ export function LatestPosts({ posts, site }: { posts: Post[]; site: SiteInfo }) 
     <section aria-labelledby="latest-heading" className="py-16 md:py-24">
       <Container>
         <div className="flex flex-wrap items-end justify-between gap-4">
-          <SectionHeading eyebrow="Latest" id="latest-heading" title="From the courts this month" />
+          <SectionHeading eyebrow="Latest" id="latest-heading" title="Latest from the club" />
           {follow ? (
             <a
               href={follow.url}
@@ -55,7 +55,7 @@ export function LatestPosts({ posts, site }: { posts: Post[]; site: SiteInfo }) 
             <li key={post.id} className="w-[76%] shrink-0 snap-start sm:w-auto">
               <article className={i === 1 ? "sm:pt-10" : ""}>
                 <Placeholder image={post.image} className={`${aspects[i % aspects.length]} rounded-2xl`} />
-                <p className="mt-4 text-xs font-semibold uppercase tracking-[0.16em] text-ink-muted">
+                <p className="mt-4 text-base font-semibold uppercase tracking-[0.1em] text-ink-muted">
                   <time dateTime={post.publishedAt}>{formatDateTime(post.publishedAt)}</time>
                   {post.source === "instagram" ? " · Instagram" : null}
                 </p>
@@ -65,7 +65,7 @@ export function LatestPosts({ posts, site }: { posts: Post[]; site: SiteInfo }) 
                     href={post.permalink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-2 inline-flex min-h-11 items-center gap-1 text-sm font-medium text-slate-800 underline decoration-aqua-200 underline-offset-4 hover:decoration-slate-800"
+                    className="mt-2 inline-flex min-h-11 items-center gap-1 text-base font-medium text-slate-800 underline decoration-aqua-200 underline-offset-4 hover:decoration-slate-800"
                   >
                     View post
                     <ExternalIcon className="h-3.5 w-3.5" />
